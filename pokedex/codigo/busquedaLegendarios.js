@@ -1,4 +1,4 @@
-class busquedaGeneracion extends Escena{
+class BusquedaGeneracion extends Escena{
 	constructor(plantilla){
 		this.plantilla = plantilla;
 		this.indicePos = new Array(19);
