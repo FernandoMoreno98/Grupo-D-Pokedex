@@ -10,27 +10,37 @@ and open the template in the editor.
         <meta charset="UTF-8">
     </head>
     <body>
-        <audio src="musica/MusicaFondo.mp3" autoplay loop></audio> 
-        <audio id="Entrar" src="musica/Entrar.mp3"></audio>  
-        <audio id="Salir" src="musica/Salir.mp3"></audio>
+        <audio src="\..\Grupo-D-Pokedex\pokedex\musica/MusicaFondo.mp3" autoplay loop></audio> 
+        <audio id="Entrar" src="\..\Grupo-D-Pokedex\pokedex\musica/Entrar.mp3"></audio>  
+        <audio id="Salir" src="\..\Grupo-D-Pokedex\pokedex\musica/Salir.mp3"></audio>
         <canvas id="canvas" width="850" height="480"></canvas>
-        <img id="busquedalegendarios" src="pantalla\plantillas\busquedas\PNG/busquedaLegendarios_plantilla.png" style="display: none;">
-        <img id="busquedageneracion" src="pantalla\plantillas\busquedas\PNG/busquedaGeneracion_plantilla.png" style="display: none;">
-        <img id="busquedatipos" src="pantalla\plantillas\busquedas\PNG/busquedaTipos_plantilla.png" style="display: none;">
-        <img id="busquedageneral" src="pantalla\plantillas\busquedas\PNG/busquedaGeneral_plantilla.png" style="display: none;">
-        <img id="fondorojo" src="pantalla\fondos/fondo_rojo.png" style="display: none;">
-        <img id="fondoazul" src="pantalla\fondos/fondo_azul.png" style="display: none;">
-        <img id="fondoverde" src="pantalla\fondos/fondo_verde.png" style="display: none;">
-        <img id="listacorto" src="pantalla\plantillas\listas\PNG/listaCorto_plantilla.png" style="display: none;">
-        <img id="listamedio" src="pantalla\plantillas\listas\PNG/listaEstandar_plantilla.png" style="display: none;">
-        <img id="listalargo" src="pantalla\plantillas\listas\PNG/listaLargo_plantilla.png" style="display: none;">
-        <img id="spritegeneracion" src="pantalla\sprites\busqueda/selecciónGeneracion.png" style="display: none;">
-        <img id="spritegeneral" src="pantalla\sprites\busqueda/seleccionGeneral.png" style="display: none;">
-        <img id="spritetiposlegen" src="pantalla\sprites\busqueda/selecciónTipos.png" style="display: none;">
-        <img id="configuracion" src="pantalla\plantillas\configuracion/configuracion_plantilla.png" style="display: none;">
-        <img id="configuracioncolor" src="pantalla\plantillas\configuracion/configuracion_plantilla_COLOR.png" style="display: none;">
-        <img id="configuraciontexto" src="pantalla\plantillas\configuracion/configuracion_plantilla_TEXTO.png" style="display: none;">
+        <img id="busquedalegendarios" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\busquedas\PNG/busquedaLegendarios_plantilla.png" style="display: none;">
+        <img id="busquedageneracion" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\busquedas\PNG/busquedaGeneracion_plantilla.png" style="display: none;">
+        <img id="busquedatipos" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\busquedas\PNG/busquedaTipos_plantilla.png" style="display: none;">
+        <img id="busquedageneral" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\busquedas\PNG/busquedaGeneral_plantilla.png" style="display: none;">
+        <img id="fondorojo" src="\..\Grupo-D-Pokedex\pokedex\pantalla\fondos/fondo_rojo.png" style="display: none;">
+        <img id="fondoazul" src="\..\Grupo-D-Pokedex\pokedex\pantalla\fondos/fondo_azul.png" style="display: none;">
+        <img id="fondoverde" src="\..\Grupo-D-Pokedex\pokedex\pantalla\fondos/fondo_verde.png" style="display: none;">
+        <img id="listacorto" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\listas\PNG/listaCorto_plantilla.png" style="display: none;">
+        <img id="listamedio" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\listas\PNG/listaEstandar_plantilla.png" style="display: none;">
+        <img id="listalargo" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\listas\PNG/listaLargo_plantilla.png" style="display: none;">
+        <img id="spritegeneracion" src="\..\Grupo-D-Pokedex\pokedex\pantalla\sprites\busqueda/selecciónGeneracion.png" style="display: none;">
+        <img id="spritegeneral" src="\..\Grupo-D-Pokedex\pokedex\pantalla\sprites\busqueda/seleccionGeneral.png" style="display: none;">
+        <img id="spritetiposlegen" src="\..\Grupo-D-Pokedex\pokedex\pantalla\sprites\busqueda/selecciónTipos.png" style="display: none;">
+        <img id="configuracion" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\configuracion/configuracion_plantilla.png" style="display: none;">
+        <img id="configuracioncolor" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\configuracion/configuracion_plantilla_COLOR.png" style="display: none;">
+        <img id="configuraciontexto" src="\..\Grupo-D-Pokedex\pokedex\pantalla\plantillas\configuracion/configuracion_plantilla_TEXTO.png" style="display: none;">
         <script src= "https://code.jquery.com/jquery-2.2.0.min.js">Esto se ve si no ejecuta</script>
-        <script src = "Interface.js"></script> 
+        <script src="busquedaGeneracion.js"></script>
+        <script src="busquedaLegendarios.js"></script>
+        <script src="Configuracion.js"></script>
+        <script src="ConfiguracionColor.js"></script>
+        <script src="ConfiguracionTexto.js"></script>
+        <script src="Escena.js"></script>
+        <script src="Interface.js"></script>
+        <script src="ManejadorDeEscenas.js"></script>
+        <script src="VistaPrincipal.js"></script>
+        <script src="VistaSeleccionGeneral.js"></script>
+        <script src="VistaSeleccionTipos.js"></script> 
     </body>   
 </html>
