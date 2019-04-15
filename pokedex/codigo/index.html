@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
     </head>
     <body>
-        <audio src="..\musica/MusicaFondo.mp3" autoplay loop></audio> 
+        <audio id="musicaFondo" src="..\musica/MusicaFondo.mp3" autoplay loop></audio> 
         <audio id="Entrar" src="..\musica/Entrar.mp3"></audio>  
         <audio id="Salir" src="..\musica/Salir.mp3"></audio>
         <canvas id="canvas" width="850" height="480"></canvas>
@@ -30,8 +30,10 @@ and open the template in the editor.
         <img id="configuracion" src="..\pantalla\plantillas\configuracion/configuracion_plantilla.png" style="display: none;">
         <img id="configuracioncolor" src="..\pantalla\plantillas\configuracion/configuracion_plantilla_COLOR.png" style="display: none;">
         <img id="configuraciontexto" src="..\pantalla\plantillas\configuracion/configuracion_plantilla_TEXTO.png" style="display: none;">
+        <img id="menu" src="..\pantalla\intro.png" style="display: none;">
         <script src= "https://code.jquery.com/jquery-2.2.0.min.js">Esto se ve si no ejecuta</script>
         <script src="Escena.js"></script>
+        <script src="Menu.js"></script>
         <script src="busquedaGeneracion.js"></script>
         <script src="busquedaLegendarios.js"></script>
         <script src="Configuracion.js"></script>
