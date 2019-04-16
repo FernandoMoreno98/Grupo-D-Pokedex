@@ -136,7 +136,7 @@ class ManejadorDeEscenas {
             this.pintarEscena();
            
         }else if(this.escena == this.vistaSeleccionTipos){
-            this.escena = this.configuracion;
+            this.escena = this.vistaSeleccionGeneral;
             this.escenaAnterior = this.vistaSeleccionTipos;
             this.pintarEscena();
         
@@ -146,12 +146,12 @@ class ManejadorDeEscenas {
             this.pintarEscena();
 
         }else if(this.escena == this.busquedaGeneracion){
-            this.escena = this.configuracion;
+            this.escena = this.vistaSeleccionGeneral;
             this.escenaAnterior = this.busquedaGeneracion;
             this.pintarEscena();
     
         }else if(this.escena == this.busquedaLegendarios){
-            this.escena = this.configuracion;
+            this.escena = this.vistaSeleccionGeneral;
             this.escenaAnterior = this.busquedaLegendarios;
             this.pintarEscena();
        
@@ -186,7 +186,9 @@ class ManejadorDeEscenas {
 
         }else if(this.escena == this.vistaSeleccionGeneral){
             //Depende de donde lo pulses accedes a generacion, tipos o legendarios
-            this.escena.EnterPulsado();
+            this.escenaAnterior = this.vistaSeleccionGeneral;
+            this.escena = this.escena.EnterPulsado(this.busquedaGeneracion, this.vistaSeleccionTipos, this.busquedaLegendarios);
+            this.pintarEscena();
         
         }else if(this.escena == this.busquedaGeneracion){
             this.escena = this.vistaPrincipal;

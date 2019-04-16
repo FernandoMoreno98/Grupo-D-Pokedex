@@ -5,7 +5,6 @@ class VistaSeleccionGeneral extends Escena{
 		this.plantilla = plantilla;
 		this.indicePos = [[100,100],[200,100],[300,100]];//Posiciones para pintar Caja Recuadro 
 		this.posActual = 0;
-
         this.idRecuadro = "spritegeneral";
 
 	}
@@ -16,6 +15,7 @@ class VistaSeleccionGeneral extends Escena{
         canvas2d.drawImage(document.getElementById(this.idRecuadro),this.indicePos[this.posActual][0],this.indicePos[this.posActual][1]);
     }
 	pintar(fondo){
+        this.getFondo();
 		var canvas=document.getElementById("canvas");   
     	var canvas2d=canvas.getContext("2d");
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);
@@ -65,9 +65,14 @@ class VistaSeleccionGeneral extends Escena{
         this.pintar();
     }
 
-    EnterPulsado(){
-        this.escena = this.menu;
-        this.escenaAnterior = this.vistaPrincipal;
-        this.pintarEscena();
+    EnterPulsado(busquedaGeneracion, vistaSeleccionTipos, busquedaLegendarios){
+        if(this.posActual==0){
+            return busquedaGeneracion;
+        }else if(this.posActual==1){
+            return vistaSeleccionTipos;
+        }else{
+            return busquedaLegendarios;
+        }
+        
     }
 }
