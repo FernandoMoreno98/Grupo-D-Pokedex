@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "futur" ;
+    src: url("../tipografia/futura/futur.ttf");
+}
+
+@font-face {
+    font-family: "NeogreyMedium" ;
+    src: local("NeogreyMedium"), url("../tipografia/NeogreyMedium.otf");
+}

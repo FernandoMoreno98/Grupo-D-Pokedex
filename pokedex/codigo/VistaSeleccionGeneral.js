@@ -13,5 +13,29 @@ class VistaSeleccionGeneral extends Escena{
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);
     	canvas2d.drawImage(document.getElementById(this.fondo),10,8,canvas.width,canvas.height);
     	canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-20,canvas.height);
+
+    	canvas2d.font= '25px "NeogreyMedium"';
+    	canvas2d.fillText("BÚSQUEDA" , 50 ,100);
+
+    	canvas2d.font= '25px "NeogreyMedium"';
+    	canvas2d.fillText("¿Qué quieres buscar?" , 50 ,100);
+
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
+    	canvas2d.fillText("ESC salir  ENTER aceptar  C Configuración" , 15 , 40);
+
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
+    	canvas2d.fillText("Opción" , 15 , 40);
+
+    	canvas2d.font= '25px "NeogreyMedium"';
+    	canvas2d.fillText("Flechas del teclado" , 50 ,100);
+
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
+    	canvas2d.fillText("Generación" , 15 , 40);
+
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
+    	canvas2d.fillText("Tipo" , 15 , 40);
+
+    	canvas2d.font= '25px "NeogreyMedium"';
+    	canvas2d.fillText("Legendario" , 50 ,100);
 	}
 }
