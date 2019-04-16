@@ -3,10 +3,18 @@ class VistaSeleccionGeneral extends Escena{
 	constructor(plantilla){
 		super();
 		this.plantilla = plantilla;
-		this.indicePos = new Array(7);
+		this.indicePos = [[100,100],[200,100],[300,100]];//Posiciones para pintar Caja Recuadro 
 		this.posActual = 0;
 
+        this.idRecuadro = "spritegeneral";
+
 	}
+    pintarDatosNoFijos(){
+        var canvas=document.getElementById("canvas");   
+        var canvas2d=canvas.getContext("2d");
+
+        canvas2d.drawImage(document.getElementById(this.idRecuadro),this.indicePos[this.posActual][0],this.indicePos[this.posActual][1]);
+    }
 	pintar(fondo){
 		var canvas=document.getElementById("canvas");   
     	var canvas2d=canvas.getContext("2d");
@@ -37,5 +45,29 @@ class VistaSeleccionGeneral extends Escena{
 
     	canvas2d.font= '25px "NeogreyMedium"';
     	canvas2d.fillText("Legendario" , 50 ,100);
+
+        this.pintarDatosNoFijos();
 	}
+
+    ArrowLeftPulsado(){
+        this.posActual-=1;
+        if( this.posActual< 0){
+            this.posActual  = this.indicePos.length - 1;
+        }
+        this.pintar();
+    }
+
+    ArrowRightPulsado(){
+        this.posActual+=1;
+        if(this.posActual >= this.indicePos.length){
+            this.posActual=0
+        }
+        this.pintar();
+    }
+
+    EnterPulsado(){
+        this.escena = this.menu;
+        this.escenaAnterior = this.vistaPrincipal;
+        this.pintarEscena();
+    }
 }

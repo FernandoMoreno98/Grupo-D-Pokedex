@@ -26,6 +26,7 @@ class ManejadorDeEscenas {
 	switch (tecla) {
       case "ArrowDown":
         if(this.escena == this.vistaPrincipal){
+            this.escena.ArrowDownPulsado();
             //Se incrementa la posicion del array de posiciones en 1
        
         }else if(this.escena == this.vistaSeleccionGeneral){
@@ -51,6 +52,7 @@ class ManejadorDeEscenas {
 
       case "ArrowUp":
         if(this.escena == this.vistaPrincipal){
+            this.escena.ArrowUpPulsado();
             //Se disminuye la posicion del array de posiciones en 1
            
         }else if(this.escena == this.vistaSeleccionTipos){
@@ -75,6 +77,7 @@ class ManejadorDeEscenas {
 
       case "ArrowLeft":
         if(this.escena == this.vistaPrincipal){
+            this.escena.ArrowLeftPulsado();
             //Se disminuye la posicion del array de posiciones en 1
            
         }else if(this.escena == this.vistaSeleccionTipos){
@@ -95,9 +98,13 @@ class ManejadorDeEscenas {
         }else if(this.escena == this.configuracionTexto){
             //No hace nada
         }
+        else if(this.escena == this.vistaSeleccionGeneral){
+            this.escena.ArrowLeftPulsado();
+        }
         break;
       case "ArrowRight":
         if(this.escena == this.vistaPrincipal){
+            this.escena.ArrowRightPulsado();
             //Se disminuye la posicion del array de posiciones en 1
            
         }else if(this.escena == this.vistaSeleccionTipos){
@@ -117,6 +124,9 @@ class ManejadorDeEscenas {
       
         }else if(this.escena == this.configuracionTexto){
             //No hace nada
+        }
+        else if(this.escena == this.vistaSeleccionGeneral){
+            this.escena.ArrowRightPulsado();
         }
         break;
       case "Escape":
@@ -176,6 +186,7 @@ class ManejadorDeEscenas {
 
         }else if(this.escena == this.vistaSeleccionGeneral){
             //Depende de donde lo pulses accedes a generacion, tipos o legendarios
+            this.escena.EnterPulsado();
         
         }else if(this.escena == this.busquedaGeneracion){
             this.escena = this.vistaPrincipal;
