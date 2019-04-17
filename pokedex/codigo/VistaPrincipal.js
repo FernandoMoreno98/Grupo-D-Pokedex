@@ -50,7 +50,7 @@ class VistaPrincipal extends Escena{
 
 	pintar(fondo){
 		var that = this;
-        this.getFondo();
+        //this.getFondo();
 		var canvas=document.getElementById("canvas");   
     	var canvas2d=canvas.getContext("2d");
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);

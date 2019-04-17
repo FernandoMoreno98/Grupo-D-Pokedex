@@ -15,7 +15,6 @@ class VistaSeleccionGeneral extends Escena{
         canvas2d.drawImage(document.getElementById(this.idRecuadro),this.indicePos[this.posActual][0],this.indicePos[this.posActual][1]);
     }
 	pintar(fondo){
-        this.getFondo();
 		var canvas=document.getElementById("canvas");   
     	var canvas2d=canvas.getContext("2d");
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);

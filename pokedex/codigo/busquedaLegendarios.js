@@ -6,7 +6,6 @@ class BusquedaLegendarios extends Escena{
 		this.posActual = 0;
 	}
 	pintar(fondo){
-        this.getFondo();
 		var canvas=document.getElementById("canvas");   
     	var canvas2d=canvas.getContext("2d");
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);

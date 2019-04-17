@@ -84,6 +84,7 @@ class ManejadorDeEscenas {
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
         
         }else if(this.escena == this.busquedaGeneracion){
+            this.escena.ArrowLeftPulsado();
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
     
         }else if(this.escena == this.busquedaLegendarios){
@@ -108,9 +109,11 @@ class ManejadorDeEscenas {
             //Se disminuye la posicion del array de posiciones en 1
            
         }else if(this.escena == this.vistaSeleccionTipos){
+            
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
         
         }else if(this.escena == this.busquedaGeneracion){
+            this.escena.ArrowRightPulsado();
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
     
         }else if(this.escena == this.busquedaLegendarios){
@@ -191,6 +194,7 @@ class ManejadorDeEscenas {
             this.pintarEscena();
         
         }else if(this.escena == this.busquedaGeneracion){
+            this.escena.EnterPulsado();
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.busquedaGeneracion;
             this.pintarEscena();
@@ -376,7 +380,7 @@ class ManejadorDeEscenas {
         }*/
         break;
       default:
-}
+    }
 	}
 }
 
