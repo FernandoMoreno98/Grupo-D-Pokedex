@@ -8,7 +8,6 @@ class ManejadorDeEscenas {
 		this.configuracion = new Configuracion("configuracion");
 		this.configuracionColor = new ConfiguracionColor("configuracioncolor");
 		this.configuracionTexto = new ConfiguracionTexto("configuraciontexto");
-        this.configuracionTexto = new ConfiguracionTexto("configuraciontexto");
         this.menu = new Menu("menu");
         this.escenaAnterior = this.menu;
 		this.escena = this.menu;
@@ -18,11 +17,20 @@ class ManejadorDeEscenas {
 		this.escena.pintar();
 	}
     
+    cambiarFondoDeTodasLasEscenas(fondoNuevo){
+        this.vistaPrincipal.fondo = fondoNuevo;
+        this.vistaSeleccionGeneral.fondo = fondoNuevo;
+        this.vistaSeleccionTipos.fondo = fondoNuevo;
+        this.busquedaGeneracion.fondo = fondoNuevo;
+        this.busquedaLegendarios.fondo = fondoNuevo;
+        this.menu.fondo = fondoNuevo;
+        this.configuracion.fondo = fondoNuevo;
+        this.configuracionColor.fondo = fondoNuevo;
+        this.configuracionTexto.fondo = fondoNuevo;
+    }
+
 	entrada(event){
 	var tecla = event.key;
-
-    console.log(tecla);
-
 	switch (tecla) {
       case "ArrowDown":
         if(this.escena == this.vistaPrincipal){
@@ -42,9 +50,9 @@ class ManejadorDeEscenas {
             //Se incrementa la posicion del array de posiciones en 1
       
         }else if(this.escena == this.configuracion){
-
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.configuracionColor){
-
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.configuracionTexto){
 
         }
@@ -65,9 +73,11 @@ class ManejadorDeEscenas {
             //Se disminuye la posicion del array de posiciones en 1
        
         }else if(this.escena == this.configuracion){
+             this.escena.ArrowUpPulsado();
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
       
         }else if(this.escena == this.configuracionColor){
+            this.escena.ArrowUpPulsado();
             //Se disminuye la posicion del array de posiciones en 1
       
         }else if(this.escena == this.configuracionTexto){
@@ -81,6 +91,7 @@ class ManejadorDeEscenas {
             //Se disminuye la posicion del array de posiciones en 1
            
         }else if(this.escena == this.vistaSeleccionTipos){
+            this.escena.ArrowLeftPulsado();
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
         
         }else if(this.escena == this.busquedaGeneracion){
@@ -88,6 +99,7 @@ class ManejadorDeEscenas {
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
     
         }else if(this.escena == this.busquedaLegendarios){
+            this.escena.ArrowLeftPulsado();
             //Se disminuye la posicion del array de posiciones en 1
        
         }else if(this.escena == this.configuracion){
@@ -109,7 +121,7 @@ class ManejadorDeEscenas {
             //Se disminuye la posicion del array de posiciones en 1
            
         }else if(this.escena == this.vistaSeleccionTipos){
-            
+            this.escena.ArrowRightPulsado();
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
         
         }else if(this.escena == this.busquedaGeneracion){
@@ -117,6 +129,7 @@ class ManejadorDeEscenas {
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
     
         }else if(this.escena == this.busquedaLegendarios){
+            this.escena.ArrowRightPulsado();
             //Se disminuye la posicion del array de posiciones en 1
        
         }else if(this.escena == this.configuracion){
@@ -164,17 +177,13 @@ class ManejadorDeEscenas {
       
         }else if(this.escena == this.configuracionColor){
             this.escena = this.configuracion;
-            this.escenaAnterior = this.configuracionColor;
+            //this.escenaAnterior = this.configuracionColor;
             this.pintarEscena();
       
         }else if(this.escena == this.configuracionTexto){
+            this.escena.EscapePulsado();
             this.escena = this.configuracion;
-            this.escenaAnterior = this.configuracionTexto;
-            this.pintarEscena();
-        }
-        else if(this.escena == this.vistaSeleccionGeneral){
-            this.escena = this.vistaPrincipal;
-            this.escenaAnterior = this.vistaSeleccionGeneral;
+            //this.escenaAnterior = this.configuracionTexto;
             this.pintarEscena();
         }
         break;
@@ -183,6 +192,7 @@ class ManejadorDeEscenas {
             //No hace nada       
         }else*/ 
         if(this.escena == this.vistaSeleccionTipos){
+            this.escena.EnterPulsado();
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.vistaSeleccionTipos;
             this.pintarEscena();
@@ -200,21 +210,36 @@ class ManejadorDeEscenas {
             this.pintarEscena();
     
         }else if(this.escena == this.busquedaLegendarios){
+            this.escena.EnterPulsado();
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.busquedaLegendarios;
             this.pintarEscena();
        
         }else if(this.escena == this.configuracion){
+            var resultadoPulsarEnterenEscena = this.escena.EnterPulsado(this.configuracionColor,this.configuracionTexto);
+            if(resultadoPulsarEnterenEscena == this.configuracionTexto){
+                this.escena = resultadoPulsarEnterenEscena;
+                //this.escenaAnterior = this.configuracion;
+                this.pintarEscena();
+            }else if(resultadoPulsarEnterenEscena == this.configuracionColor){
+                this.escena = resultadoPulsarEnterenEscena;
+                //this.escenaAnterior = this.configuracion;
+                this.pintarEscena();
+            }
             //Depende de donde lo pulses accedes al cambio de color o de texto
       
         }else if(this.escena == this.configuracionColor){
-            this.escena = this.configuracion;
-            this.escenaAnterior = this.configuracionColor;
+            var colorDeFondo = this.escena.EnterPulsado();
+            this.cambiarFondoDeTodasLasEscenas(colorDeFondo);
+            this.configuracion.colorfondo = colorDeFondo;
+            //this.escena = this.configuracion;
+            //this.escenaAnterior = this.configuracionColor;
             this.pintarEscena();
       
         }else if(this.escena == this.configuracionTexto){
-            this.escena = this.configuracion;
-            this.escenaAnterior = this.configuracionTexto;
+            this.configuracion.nombre = this.escena.EnterPulsado();
+            //this.escena = this.configuracion;
+            //this.escenaAnterior = this.configuracionTexto;
             this.pintarEscena();
         }else if(this.escena == this.menu){
             this.escena = this.vistaPrincipal;
@@ -381,6 +406,20 @@ class ManejadorDeEscenas {
         break;
       default:
     }
+
+    ////////////////////////////////////////
+    /*     
+     Caso Especial
+        En el caso de estar en la configuracion de nombre no se puede contemplar distinta accion 
+        en funcion de la tecla pulsada ya que todas las teclas seran para añadir , quitar o modificar el nombre
+        Por tanto , si despues de haber comprobado los casos anteriores si seguimos en la configuracion de texto y hemos pulsado una tecla 
+        sera para modificar el nombre del usuario
+    */
+    if(this.escena == this.configuracionTexto){
+        this.escena.EscribirNombre(event);
+    }
+    ////////////////////////////////////////////////
+
 	}
 }
 

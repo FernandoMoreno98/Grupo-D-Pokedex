@@ -3,10 +3,21 @@ class VistaSeleccionTipos extends Escena{
 	constructor(plantilla){
 		super();
 		this.plantilla = plantilla;
-		this.indicePos = new Array(18);
+		this.indicePos = [[100,100],[120,100],[130,100],[140,100],[150,100],[160,100],[170,100],
+        [180,100],[190,100],[200,100],[210,100],[220,100],[230,100],[240,100],[250,100],[260,100],
+        [270,100],[280,100]];//18 en total
 		this.posActual = 0;
+        this.idRecuadro = "spritegeneral";
 
 	}
+
+    pintarDatosNoFijos(){
+        var canvas=document.getElementById("canvas");   
+        var canvas2d=canvas.getContext("2d");
+
+        canvas2d.drawImage(document.getElementById(this.idRecuadro),this.indicePos[this.posActual][0],this.indicePos[this.posActual][1]);
+    }
+
 	pintar(fondo){
         //this.getFondo();
 		var canvas=document.getElementById("canvas");   
@@ -84,5 +95,64 @@ class VistaSeleccionTipos extends Escena{
 
     	canvas2d.font= '25px "NeogreyMedium"';
     	canvas2d.fillText("water" , 50 ,100);
+
+        this.pintarDatosNoFijos();
 	}
+
+    ArrowLeftPulsado(){
+        this.posActual-=1;
+        if( this.posActual< 0){
+            this.posActual  = this.indicePos.length - 1;
+        }
+        this.pintar();
+    }
+
+    ArrowRightPulsado(){
+        this.posActual+=1;
+        if(this.posActual >= this.indicePos.length){
+            this.posActual=0
+        }
+        this.pintar();
+    }
+
+    EnterPulsado(){
+        console.log("Se ha pulsado el enter en tipos");
+        if(this.posActual==0){
+          //Hace algo//
+        }else if(this.posActual==1){
+            //Hace algo//
+        }else if (this.posActual == 2){
+            //Hace algo//
+        }else if(this.posActual==3){
+            //Hace algo//
+        }else if (this.posActual == 4){
+            //Hace algo//
+        }else if(this.posActual==5){
+            //Hace algo//
+        }else if (this.posActual == 6){
+            //Hace algo//
+        }else if(this.posActual==7){
+            //Hace algo//
+        }else if (this.posActual == 8){
+            //Hace algo//
+        }else if(this.posActual==9){
+            //Hace algo//
+        }else if (this.posActual == 10){
+            //Hace algo//
+        }else if(this.posActual==11){
+            //Hace algo//
+        }else if (this.posActual == 12){
+            //Hace algo//
+        }else if(this.posActual==13){
+            //Hace algo//
+        }else if (this.posActual == 14){
+            //Hace algo//
+        }else if(this.posActual==15){
+            //Hace algo//
+        }else if (this.posActual == 16){
+            //Hace algo//
+        }else if(this.posActual==17){
+            //Hace algo//
+        }         
+    }
 }

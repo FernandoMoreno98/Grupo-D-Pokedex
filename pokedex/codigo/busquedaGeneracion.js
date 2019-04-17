@@ -78,6 +78,7 @@ class BusquedaGeneracion extends Escena{
     }
 
     EnterPulsado(){
+        console.log("Se ha pulsado el enter en generacion");
         if(this.posActual==0){
           //Hace algo//
         }else if(this.posActual==1){
