@@ -120,4 +120,7 @@ class VistaPrincipal extends Escena{
         this.pintar();
     }
 
+    RPulsado(){
+        console.log("Se ha pulsado R");
+    }
 }

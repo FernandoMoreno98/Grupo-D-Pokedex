@@ -404,7 +404,12 @@ class ManejadorDeEscenas {
             //Desde aqui no se puede acceder
         }*/
         break;
-      default:
+        case "r":
+        if(this.escena == this.vistaPrincipal){
+            this.escena.RPulsado();
+            this.pintarEscena();
+        }
+        default:
     }
 
     ////////////////////////////////////////
