@@ -67,7 +67,7 @@ class ConfiguracionTexto extends Escena{
            this.nombre = this.nombre.substr(0,this.nombre.length-1);
            
         }
-        else if(event.keyCode == 32 || event.keyCode >=48 && event.keyCode < 90 && this.nombre.length<15){
+        else if(event.keyCode == 32 || event.keyCode >=48 && event.keyCode < 90 && this.nombre.length<10){
             this.nombre+=event.key;
         }
         this.pintar();

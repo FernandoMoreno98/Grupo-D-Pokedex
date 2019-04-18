@@ -24,9 +24,16 @@ class Configuracion extends Escena{
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText(this.nombre , 270 , 225);
-
-    	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText(this.colorfondo, 283 , 276);
+        if(this.colorfondo=="fondoazul"){
+            canvas2d.font= 'bold 20px "NeogreyMedium"';
+            canvas2d.fillText("Azul", 315 , 276);
+        }else if(this.colorfondo=="fondorojo"){
+            canvas2d.font= 'bold 20px "NeogreyMedium"';
+            canvas2d.fillText("Rojo", 315 , 276);
+        }else{
+            canvas2d.font= 'bold 20px "NeogreyMedium"';
+            canvas2d.fillText("Verde", 305 , 276);
+        }
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText(this.tamano , 320 , 328);
