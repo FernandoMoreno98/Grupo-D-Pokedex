@@ -430,14 +430,17 @@ class ManejadorDeEscenas {
 
 var manejadorDeEscenas = new ManejadorDeEscenas();
 
+var bgm = document.getElementById("musicaFondo");
+bgm.preload = "auto";
+bgm.loop = true;
 
 $(document).ready(function(){
-    myAudio = new Audio('pokedex/musica/MusicaFondo.mp3');
-    myAudio.loop = true;
-    myAudio.play();
 	$(document).keydown(function(event){
 		manejadorDeEscenas.entrada(event);
-	})
-})
+	});
+    $(document).click(function(){
+       bgm.play();
+    });
+});
 
 manejadorDeEscenas.pintarEscena();
