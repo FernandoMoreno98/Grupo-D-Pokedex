@@ -432,13 +432,9 @@ var manejadorDeEscenas = new ManejadorDeEscenas();
 
 
 $(document).ready(function(){
-    myAudio = new Audio('pokedex/musica/BGM.mp3');
-    myAudio.loop = true;
-    myAudio.play();
 	$(document).keydown(function(event){
 		manejadorDeEscenas.entrada(event);
 	})
 })
-
 
 manejadorDeEscenas.pintarEscena();
