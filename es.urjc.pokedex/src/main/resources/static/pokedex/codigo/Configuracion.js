@@ -3,9 +3,9 @@ class Configuracion extends Escena{
 	constructor(plantilla){
 		super();
 		this.plantilla = plantilla;
-		this.indicePos = [[100,100],[110,100],[120,100],[130,100]];
+		this.indicePos = [[213,129.5],[213,181.5],[213,233.5],[213,285.5]];
 		this.posActual = 0;
-		this.idRecuadro = "spritegeneral";
+		this.idRecuadro = "spriteconfig";
 
 		this.numAplicacion = "0000001";
 		this.nombre = "Anonimo"
@@ -20,16 +20,16 @@ class Configuracion extends Escena{
         canvas2d.drawImage(document.getElementById(this.idRecuadro),this.indicePos[this.posActual][0],this.indicePos[this.posActual][1]);
 
         canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText(this.numAplicacion , 200 , 400);
+    	canvas2d.fillText(this.numAplicacion , 290 , 173);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText(this.nombre , 300 , 400);
+    	canvas2d.fillText(this.nombre , 270 , 225);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText(this.colorfondo, 400 , 400);
+    	canvas2d.fillText(this.colorfondo, 283 , 276);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText(this.tamano , 500 , 400);
+    	canvas2d.fillText(this.tamano , 320 , 328);
 
     }
 
@@ -39,33 +39,33 @@ class Configuracion extends Escena{
 	    var canvas2d=canvas.getContext("2d");
 	    canvas2d.clearRect(0, 0, canvas.width, canvas.height);
 	    canvas2d.drawImage(document.getElementById(this.fondo),10,8,canvas.width,canvas.height);
-	    canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-20,canvas.height);
+	    canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width,canvas.height);
 
 	    //Texto Base//
 
 	    canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("CONFIGURACIÓN" , 15 , 40);
+    	canvas2d.fillText("CONFIGURACIÓN" , 40 , 40);
 
 	    canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("ESC salir  ENTER aceptar " , 15 , 40);
+    	canvas2d.fillText("ESC salir                           ENTER aceptar" , 40 , 470);
+
+    	canvas2d.font= 'bold 16px "NeogreyMedium"';
+    	canvas2d.fillText("Opción" , 770 , 40);
+
+    	canvas2d.font= '12px "NeogreyMedium"';
+    	canvas2d.fillText("Flechas del teclado" , 600 , 20);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("Opción" , 15 , 40);
-
-    	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("Flechas del teclado" , 50 ,100);
+    	canvas2d.fillText("Nº APLICACIÓN" , 35 , 173);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("Nº APLICACIÓN" , 15 , 40);
+    	canvas2d.fillText("NOM. USUARIO" , 31 , 225);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("NOM. USUARIO" , 15 , 40);
+    	canvas2d.fillText("COLORPOKÉDEX" , 19 , 276);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("COLORPOKÉDEX" , 15 , 40);
-
-    	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("TAMAÑO" , 15 , 40);
+    	canvas2d.fillText("TAMAÑO" , 60, 328);
 
     	this.pintarDatosNoFijos();
 	}

@@ -3,11 +3,11 @@ class VistaSeleccionTipos extends Escena{
 	constructor(plantilla){
 		super();
 		this.plantilla = plantilla;
-		this.indicePos = [[100,100],[120,100],[130,100],[140,100],[150,100],[160,100],[170,100],
-        [180,100],[190,100],[200,100],[210,100],[220,100],[230,100],[240,100],[250,100],[260,100],
-        [270,100],[280,100]];//18 en total
+		this.indicePos = [[11,71],[186.5,71],[363,71],[534.5,71],[707,69],[11,150],[186.5,150],
+        [364,150],[534.5,150],[707,150],[9,241],[186.5,241],[366,241],[534.5,241],[708,242],[11,339],
+        [186.5,339],[366,339]];//18 en total
 		this.posActual = 0;
-        this.idRecuadro = "spritegeneral";
+        this.idRecuadro = "spritetiposlegen";
 
 	}
 
@@ -24,77 +24,77 @@ class VistaSeleccionTipos extends Escena{
     	var canvas2d=canvas.getContext("2d");
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);
     	canvas2d.drawImage(document.getElementById(this.fondo),10,8,canvas.width,canvas.height);
-    	canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-20,canvas.height);
+    	canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width,canvas.height);
 
     	//Texto Base//
-    	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("BÚSQUEDA POR TIPOS" , 50 ,100);
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
+    	canvas2d.fillText("BÚSQUEDA POR TIPOS" , 40 ,40);
 
-    	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("Elige tipo" , 50 ,100);
+    	canvas2d.font= 'bold 35px "NeogreyMedium"';
+    	canvas2d.fillText("Elige tipo" , 350 ,50);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("ESC salir  ENTER aceptar  C Configuración" , 15 , 40);
+    	canvas2d.fillText("ESC salir                           ENTER aceptar                   C Configuración" , 40 , 470);
 
-    	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("Opción" , 15 , 40);
+    	canvas2d.font= 'bold 16px "NeogreyMedium"';
+    	canvas2d.fillText("Opción" , 770 , 40);
 
-    	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("Flechas del teclado" , 50 ,100);
-
-    	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("bug" , 50 ,100);
+    	canvas2d.font= '12px "NeogreyMedium"';
+    	canvas2d.fillText("Flechas del teclado" , 600 ,20);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("dark" , 50 ,100);
+    	canvas2d.fillText("bug" , 65 ,120);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("dragon" , 50 ,100);
+    	canvas2d.fillText("dark" , 230 ,120);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("electric" , 50 ,100);
+    	canvas2d.fillText("dragon" , 389 ,120);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("fairy" , 50 ,100);
+    	canvas2d.fillText("electric" , 558 ,120);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("fight" , 50 ,100);
+    	canvas2d.fillText("fairy" , 753 ,120);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("fire" , 50 ,100);
+    	canvas2d.fillText("fight" , 60 ,198);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("flying" , 50 ,100);
+    	canvas2d.fillText("fire" , 240 ,198);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("ghost" , 50 ,100);
+    	canvas2d.fillText("flying" , 405 ,198);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("grass" , 50 ,100);
+    	canvas2d.fillText("ghost" , 570 ,198);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("ground" , 50 ,100);
+    	canvas2d.fillText("grass" , 742 ,198);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("ice" , 50 ,100);
+    	canvas2d.fillText("ground" , 35 ,288);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("normal" , 50 ,100);
+    	canvas2d.fillText("ice" , 245 ,288);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("poison" , 50 ,100);
+    	canvas2d.fillText("normal" , 392 ,288);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("psychic" , 50 ,100);
+    	canvas2d.fillText("poison" , 566 ,288);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("rock" , 50 ,100);
+    	canvas2d.fillText("psychic" , 732 ,288);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("steel" , 50 ,100);
+    	canvas2d.fillText("rock" , 55 ,385);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("water" , 50 ,100);
+    	canvas2d.fillText("steel" , 227 ,385);
+
+    	canvas2d.font= '25px "NeogreyMedium"';
+    	canvas2d.fillText("water" , 402 ,385);
 
         this.pintarDatosNoFijos();
 	}
@@ -111,6 +111,22 @@ class VistaSeleccionTipos extends Escena{
         this.posActual+=1;
         if(this.posActual >= this.indicePos.length){
             this.posActual=0
+        }
+        this.pintar();
+    }
+
+    ArrowUpPulsado(){
+        this.posActual-=5;
+        if( this.posActual< 0){
+            this.posActual += this.indicePos.length;
+        }
+        this.pintar();
+    }
+
+    ArrowDownPulsado(){
+        this.posActual+=5;
+        if(this.posActual >= this.indicePos.length){
+            this.posActual = this.posActual % this.indicePos.length;
         }
         this.pintar();
     }

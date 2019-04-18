@@ -36,19 +36,15 @@ class ManejadorDeEscenas {
         if(this.escena == this.vistaPrincipal){
             this.escena.ArrowDownPulsado();
             //Se incrementa la posicion del array de posiciones en 1
-       
-        }else if(this.escena == this.vistaSeleccionGeneral){
-            //Se incrementa la posicion del array de posiciones en 5, si se pasa se pone el último índice
-        
         }else if(this.escena ==this.vistaSeleccionTipos){
             //Se incrementa la posicion del array de posiciones en 5, si se pasa se pone el último índice
-         
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.busquedaGeneracion){
             //Se incrementa la posicion del array de posiciones en 5, si se pasa se pone el último índice
-        
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.busquedaLegendarios){
             //Se incrementa la posicion del array de posiciones en 1
-      
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.configuracion){
             this.escena.ArrowDownPulsado();
         }else if(this.escena == this.configuracionColor){
@@ -65,12 +61,13 @@ class ManejadorDeEscenas {
            
         }else if(this.escena == this.vistaSeleccionTipos){
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
-        
+            this.escena.ArrowUpPulsado();
         }else if(this.escena == this.busquedaGeneracion){
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
-    
+            this.escena.ArrowUpPulsado();
         }else if(this.escena == this.busquedaLegendarios){
             //Se disminuye la posicion del array de posiciones en 1
+            this.escena.ArrowUpPulsado();
        
         }else if(this.escena == this.configuracion){
              this.escena.ArrowUpPulsado();
@@ -232,14 +229,12 @@ class ManejadorDeEscenas {
             var colorDeFondo = this.escena.EnterPulsado();
             this.cambiarFondoDeTodasLasEscenas(colorDeFondo);
             this.configuracion.colorfondo = colorDeFondo;
-            //this.escena = this.configuracion;
-            //this.escenaAnterior = this.configuracionColor;
+            this.escena = this.configuracion;
             this.pintarEscena();
       
         }else if(this.escena == this.configuracionTexto){
             this.configuracion.nombre = this.escena.EnterPulsado();
-            //this.escena = this.configuracion;
-            //this.escenaAnterior = this.configuracionTexto;
+            this.escena = this.configuracion;
             this.pintarEscena();
         }else if(this.escena == this.menu){
             this.escena = this.vistaPrincipal;
@@ -428,6 +423,8 @@ class ManejadorDeEscenas {
 	}
 }
 
+var musicaIsFalse = false;
+
 var manejadorDeEscenas = new ManejadorDeEscenas();
 
 var bgm = document.getElementById("musicaFondo");
@@ -439,7 +436,14 @@ $(document).ready(function(){
 		manejadorDeEscenas.entrada(event);
 	});
     $(document).click(function(){
-       bgm.play();
+        musicaIsFalse = !musicaIsFalse;
+        if(musicaIsFalse){
+            bgm.play();           
+        }else if(!musicaIsFalse){
+            bgm.pause(); 
+        }
+
+       
     });
 });
 
