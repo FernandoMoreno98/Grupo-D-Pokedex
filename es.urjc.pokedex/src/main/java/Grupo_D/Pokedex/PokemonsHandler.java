@@ -66,7 +66,7 @@ public class PokemonsHandler {
 	
 	//CAMBIAR DATABASE Y COLLECTION DE TEST A SU CORRESPONDIENTE !!!!!
 	@GetMapping("/pokemonesGeneracion/{generacion}")
-	public ArrayList<String> FindBusquedaGeneracionPokemons(@PathVariable int generacion){
+	public String FindBusquedaGeneracionPokemons(@PathVariable int generacion){
 		System.out.println("Se ejecuta el PokemonsHandler");
 		 
 		MongoClientOptions options = MongoClientOptions.builder().connectionsPerHost(100).build();
@@ -76,23 +76,21 @@ public class PokemonsHandler {
 	    MongoCollection<Document> coll = db.getCollection("test");
 	    
 	    Bson filterGen1 = new Document("generation",generacion);
-	    List<Document> resultado = coll.find(filterGen1).into(new ArrayList<Document>());
+	    Bson projection = Projections.exclude("_id","japanese_name");
+	    List<Document> resultado = coll.find(filterGen1).projection(projection).into(new ArrayList<Document>());
 	    
 	    client.close();
 	    
-	    ArrayList<String> arrayDeJsons = new ArrayList<>();
+	    Document doc = new Document("list", resultado);
+	    String json = doc.toJson();
 	    
-	    for(Document d:resultado) {
-	    	arrayDeJsons.add(d.toJson());
-	    }
-	    
-		return arrayDeJsons;
+	    return json.substring(json.indexOf(":")+2, json.length()-1);
 	    	
 	}
 	
 	//CAMBIAR DATABASE Y COLLECTION DE TEST A SU CORRESPONDIENTE !!!!!
 	@GetMapping("/pokemonesTipo/{tipo}")
-	public ArrayList<String> FindBusquedaTipoPokemons(@PathVariable String tipo){
+	public String FindBusquedaTipoPokemons(@PathVariable String tipo){
 		System.out.println("Se ejecuta el PokemonsHandler");
 		 
 		MongoClientOptions options = MongoClientOptions.builder().connectionsPerHost(100).build();
@@ -101,23 +99,22 @@ public class PokemonsHandler {
 		MongoDatabase db = client.getDatabase("test").withReadPreference(ReadPreference.secondary());
 	    MongoCollection<Document> coll = db.getCollection("test");
 	    
+	    
 	    Bson filterType = or(eq("type1",tipo),eq("type2",tipo));
-	    List<Document> resultado = coll.find(filterType).into(new ArrayList<Document>());
+	    Bson projection = Projections.exclude("_id","japanese_name");
+	    List<Document> resultado = coll.find(filterType).projection(projection).into(new ArrayList<Document>());
 	    
 	    client.close();
 	    
-	    ArrayList<String> arrayDeJsons = new ArrayList<>();
+	    Document doc = new Document("list", resultado);
+	    String json = doc.toJson();
 	    
-	    for(Document d:resultado) {
-	    	arrayDeJsons.add(d.toJson());
-	    }
-	    
-		return arrayDeJsons;
+	    return json.substring(json.indexOf(":")+2, json.length()-1);
 	    	
 	}
 	
 	@GetMapping("/pokemonesLegendario/{tipo}")
-	public ArrayList<String> FindBusquedaLegendarioPokemons(@PathVariable String tipo){
+	public String FindBusquedaLegendarioPokemons(@PathVariable String tipo){
 		System.out.println("Se ejecuta el PokemonsHandler");
 		 
 		MongoClientOptions options = MongoClientOptions.builder().connectionsPerHost(100).build();
@@ -127,17 +124,15 @@ public class PokemonsHandler {
 	    MongoCollection<Document> coll = db.getCollection("test");
 	    
 	    Bson filter = and(or(eq("type1",tipo),eq("type2",tipo)),eq("is_legendary",1));
-	    List<Document> resultado = coll.find(filter).into(new ArrayList<Document>());
+	    Bson projection = Projections.exclude("_id","japanese_name");
+	    List<Document> resultado = coll.find(filter).projection(projection).into(new ArrayList<Document>());
 	    
 	    client.close();
 	    
-	    ArrayList<String> arrayDeJsons = new ArrayList<>();
+	    Document doc = new Document("list", resultado);
+	    String json = doc.toJson();
 	    
-	    for(Document d:resultado) {
-	    	arrayDeJsons.add(d.toJson());
-	    }
-	    
-		return arrayDeJsons;
+	    return json.substring(json.indexOf(":")+2, json.length()-1);
 	    	
 	}
 }
