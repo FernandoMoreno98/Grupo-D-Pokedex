@@ -36,19 +36,15 @@ class ManejadorDeEscenas {
         if(this.escena == this.vistaPrincipal){
             this.escena.ArrowDownPulsado();
             //Se incrementa la posicion del array de posiciones en 1
-       
-        }else if(this.escena == this.vistaSeleccionGeneral){
-            //Se incrementa la posicion del array de posiciones en 5, si se pasa se pone el último índice
-        
         }else if(this.escena ==this.vistaSeleccionTipos){
             //Se incrementa la posicion del array de posiciones en 5, si se pasa se pone el último índice
-         
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.busquedaGeneracion){
             //Se incrementa la posicion del array de posiciones en 5, si se pasa se pone el último índice
-        
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.busquedaLegendarios){
             //Se incrementa la posicion del array de posiciones en 1
-      
+            this.escena.ArrowDownPulsado();
         }else if(this.escena == this.configuracion){
             this.escena.ArrowDownPulsado();
         }else if(this.escena == this.configuracionColor){
@@ -65,12 +61,13 @@ class ManejadorDeEscenas {
            
         }else if(this.escena == this.vistaSeleccionTipos){
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
-        
+            this.escena.ArrowUpPulsado();
         }else if(this.escena == this.busquedaGeneracion){
             //Se disminuye la posicion del array de posiciones en 5, si se pasa se pone el último índice
-    
+            this.escena.ArrowUpPulsado();
         }else if(this.escena == this.busquedaLegendarios){
             //Se disminuye la posicion del array de posiciones en 1
+            this.escena.ArrowUpPulsado();
        
         }else if(this.escena == this.configuracion){
              this.escena.ArrowUpPulsado();
@@ -192,9 +189,15 @@ class ManejadorDeEscenas {
             //No hace nada       
         }else*/ 
         if(this.escena == this.vistaSeleccionTipos){
-            this.escena.EnterPulsado();
+            //Poner el array de la lista con el string info recibido
+            var info = this.escena.EnterPulsado();
+            this.vistaPrincipal.listadePokemones = JSON.parse(info);
+            //Ajustar indice de posicion
+            this.vistaPrincipal.posActualX=0;
+
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.vistaSeleccionTipos;
+
             this.pintarEscena();
 
         }else if(this.escena == this.vistaSeleccionGeneral){
@@ -204,15 +207,27 @@ class ManejadorDeEscenas {
             this.pintarEscena();
         
         }else if(this.escena == this.busquedaGeneracion){
-            this.escena.EnterPulsado();
+            //Poner el array de la lista con el string info recibido
+            var info = this.escena.EnterPulsado();
+            this.vistaPrincipal.listadePokemones = JSON.parse(info);
+            //Ajustar indice de posicion
+            this.vistaPrincipal.posActualX=0;
+
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.busquedaGeneracion;
+
             this.pintarEscena();
     
         }else if(this.escena == this.busquedaLegendarios){
-            this.escena.EnterPulsado();
+            //Poner el array de la lista con el string info recibido
+            var info = this.escena.EnterPulsado();
+            this.vistaPrincipal.listadePokemones = JSON.parse(info);
+            //Ajustar indice de posicion
+            this.vistaPrincipal.posActualX=0;
+
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.busquedaLegendarios;
+
             this.pintarEscena();
        
         }else if(this.escena == this.configuracion){
@@ -232,19 +247,23 @@ class ManejadorDeEscenas {
             var colorDeFondo = this.escena.EnterPulsado();
             this.cambiarFondoDeTodasLasEscenas(colorDeFondo);
             this.configuracion.colorfondo = colorDeFondo;
-            //this.escena = this.configuracion;
-            //this.escenaAnterior = this.configuracionColor;
+            this.escena = this.configuracion;
             this.pintarEscena();
       
         }else if(this.escena == this.configuracionTexto){
             this.configuracion.nombre = this.escena.EnterPulsado();
-            //this.escena = this.configuracion;
-            //this.escenaAnterior = this.configuracionTexto;
+            this.escena = this.configuracion;
             this.pintarEscena();
         }else if(this.escena == this.menu){
-            this.escena = this.vistaPrincipal;
-            this.escenaAnterior = this.menu;
-            this.pintarEscena();
+            var that = this;
+            getAllPokemones(function(data){
+               that.vistaPrincipal.listadePokemones = JSON.parse(data);
+               that.vistaPrincipal.posActualX=0;
+               that.escena = that.vistaPrincipal;
+               that.escenaAnterior = that.menu;
+               that.pintarEscena();
+            });
+             //Ajustar indice de posicion
         }
         break;
       case "c":
@@ -428,13 +447,28 @@ class ManejadorDeEscenas {
 	}
 }
 
+var musicaIsFalse = false;
+
 var manejadorDeEscenas = new ManejadorDeEscenas();
 
+var bgm = document.getElementById("musicaFondo");
+bgm.preload = "auto";
+bgm.loop = true;
 
 $(document).ready(function(){
 	$(document).keydown(function(event){
 		manejadorDeEscenas.entrada(event);
-	})
-})
+	});
+    $(document).click(function(){
+        musicaIsFalse = !musicaIsFalse;
+        if(musicaIsFalse){
+            bgm.play();           
+        }else if(!musicaIsFalse){
+            bgm.pause(); 
+        }
+
+       
+    });
+});
 
 manejadorDeEscenas.pintarEscena();

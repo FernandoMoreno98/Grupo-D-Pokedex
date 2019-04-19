@@ -132,43 +132,63 @@ class VistaSeleccionTipos extends Escena{
     }
 
     EnterPulsado(){
+        var datos;
         console.log("Se ha pulsado el enter en tipos");
         if(this.posActual==0){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
           //Hace algo//
         }else if(this.posActual==1){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 2){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==3){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 4){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==5){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 6){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==7){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 8){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==9){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 10){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==11){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 12){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==13){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 14){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==15){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 16){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==17){
+            getBusquedaTipoPokemones("fire",function(data){datos=data});
             //Hace algo//
-        }         
+        } 
+        return datos;        
     }
 }

@@ -5,6 +5,7 @@ class VistaPrincipal extends Escena{
 		this.plantilla = plantilla;
 		this.indicePos = new Array(7);
 
+        this.campos = []
         this.posActualX = 0;
 		this.posActualY = 0;
         //Array de pokemones que se recibe de la base de datos de mongo
@@ -26,21 +27,21 @@ class VistaPrincipal extends Escena{
         for(var i = 0;i<ArrayPosPokemonesPintar.length; i++){
             var posMenosDos = posActualenY-2+i;
             if(posMenosDos < 0){
-                ArrayPosPokemonesPintar[i]=this.listadePokemones.length + posMenosDos;
+                ArrayPosPokemonesPintar[i]=this.listadePokemones[this.listadePokemones.length + posMenosDos];
                 //---PROVISIONAL//
-                canvas2d.fillText(ArrayPosPokemonesPintar[i] , 30 ,150+i*50);
+                canvas2d.fillText(ArrayPosPokemonesPintar[i].type1 , 30 ,150+i*50);
                 //---PROVISIONAL//
             }
             else if(posMenosDos>=this.listadePokemones.length){
-                ArrayPosPokemonesPintar[i]=posMenosDos% (this.listadePokemones.length);
+                ArrayPosPokemonesPintar[i]=this.listadePokemones[posMenosDos% (this.listadePokemones.length)];
                 //---PROVISIONAL//
-                canvas2d.fillText(ArrayPosPokemonesPintar[i] , 30 ,160+i*50);
+                canvas2d.fillText(ArrayPosPokemonesPintar[i].type1 , 30 ,160+i*50);
                 //---PROVISIONAL//
             }
             else{
-                ArrayPosPokemonesPintar[i]=posMenosDos;
+                ArrayPosPokemonesPintar[i]=this.listadePokemones[posMenosDos];
                 //---PROVISIONAL//
-                canvas2d.fillText(ArrayPosPokemonesPintar[i] , 30 ,160+i*50);
+                canvas2d.fillText(ArrayPosPokemonesPintar[i].type1 , 30 ,160+i*50);
                 //---PROVISIONAL//
             }
             

@@ -189,9 +189,15 @@ class ManejadorDeEscenas {
             //No hace nada       
         }else*/ 
         if(this.escena == this.vistaSeleccionTipos){
-            this.escena.EnterPulsado();
+            //Poner el array de la lista con el string info recibido
+            var info = this.escena.EnterPulsado();
+            this.vistaPrincipal.listadePokemones = JSON.parse(info);
+            //Ajustar indice de posicion
+            this.vistaPrincipal.posActualX=0;
+
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.vistaSeleccionTipos;
+
             this.pintarEscena();
 
         }else if(this.escena == this.vistaSeleccionGeneral){
@@ -201,15 +207,27 @@ class ManejadorDeEscenas {
             this.pintarEscena();
         
         }else if(this.escena == this.busquedaGeneracion){
-            this.escena.EnterPulsado();
+            //Poner el array de la lista con el string info recibido
+            var info = this.escena.EnterPulsado();
+            this.vistaPrincipal.listadePokemones = JSON.parse(info);
+            //Ajustar indice de posicion
+            this.vistaPrincipal.posActualX=0;
+
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.busquedaGeneracion;
+
             this.pintarEscena();
     
         }else if(this.escena == this.busquedaLegendarios){
-            this.escena.EnterPulsado();
+            //Poner el array de la lista con el string info recibido
+            var info = this.escena.EnterPulsado();
+            this.vistaPrincipal.listadePokemones = JSON.parse(info);
+            //Ajustar indice de posicion
+            this.vistaPrincipal.posActualX=0;
+
             this.escena = this.vistaPrincipal;
             this.escenaAnterior = this.busquedaLegendarios;
+
             this.pintarEscena();
        
         }else if(this.escena == this.configuracion){
@@ -237,9 +255,15 @@ class ManejadorDeEscenas {
             this.escena = this.configuracion;
             this.pintarEscena();
         }else if(this.escena == this.menu){
-            this.escena = this.vistaPrincipal;
-            this.escenaAnterior = this.menu;
-            this.pintarEscena();
+            var that = this;
+            getAllPokemones(function(data){
+               that.vistaPrincipal.listadePokemones = JSON.parse(data);
+               that.vistaPrincipal.posActualX=0;
+               that.escena = that.vistaPrincipal;
+               that.escenaAnterior = that.menu;
+               that.pintarEscena();
+            });
+             //Ajustar indice de posicion
         }
         break;
       case "c":

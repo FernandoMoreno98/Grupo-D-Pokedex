@@ -9,10 +9,10 @@ and open the template in the editor.
         <title>*-*POKEDEX*-*</title>
         <meta charset="UTF-8">
     </head>
-    <body>
+    <body style="background-color:#1b1b1c">
         <link rel="stylesheet" type="text/css" href="pokedex\codigo\EstilosdeTipografia.css" />
-        <div style="font-family: NeogreyMedium ;">Pokedex</div>
-        <audio id="musicaFondo" src="pokedex\musica/MusicaFondo.mp3" autoplay loop></audio> 
+        <div style="font-family: NeogreyMedium; color:white; padding-left:10px">Pokédex</div>
+        <audio id="musicaFondo" src="pokedex\musica/MusicaFondo.mp3"></audio> 
         <audio id="Entrar" src="pokedex\musica/Entrar.mp3"></audio>  
         <audio id="Salir" src="pokedex\musica/Salir.mp3"></audio>
         <canvas id="canvas" width="850" height="480"></canvas>
@@ -27,6 +27,7 @@ and open the template in the editor.
         <img id="listamedio" src="pokedex\pantalla\plantillas\listas\PNG/listaEstandar_plantilla.png" style="display: none;">
         <img id="listalargo" src="pokedex\pantalla\plantillas\listas\PNG/listaLargo_plantilla.png" style="display: none;">
         <img id="spritegeneracion" src="pokedex\pantalla\sprites\busqueda/selecciónGeneracion.png" style="display: none;">
+        <img id="spriteconfig" src="pokedex\pantalla\sprites\configuracion/selección.png" style="display: none;">
         <img id="spritegeneral" src="pokedex\pantalla\sprites\busqueda/seleccionGeneral.png" style="display: none;">
         <img id="spritetiposlegen" src="pokedex\pantalla\sprites\busqueda/selecciónTipos.png" style="display: none;">
         <img id="configuracion" src="pokedex\pantalla\plantillas\configuracion/configuracion_plantilla.png" style="display: none;">
@@ -45,5 +46,6 @@ and open the template in the editor.
         <script src="pokedex\codigo\VistaSeleccionGeneral.js"></script>
         <script src="pokedex\codigo\VistaSeleccionTipos.js"></script> 
         <script src="pokedex\codigo\ManejadorDeEscenas.js"></script>
+        <script src="pokedex\codigo\RequestFiles\apiRestRequests.js"></script>
     </body>   
 </html>

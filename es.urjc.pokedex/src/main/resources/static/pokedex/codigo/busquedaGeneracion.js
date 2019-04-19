@@ -94,21 +94,31 @@ class BusquedaGeneracion extends Escena{
     }
 
     EnterPulsado(){
+        var datos;
         console.log("Se ha pulsado el enter en generacion");
         if(this.posActual==0){
+        getBusquedaGeneracionPokemones(1,function(data){datos=data});
           //Hace algo//
         }else if(this.posActual==1){
+        getBusquedaGeneracionPokemones(2,function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 2){
+        getBusquedaGeneracionPokemones(3,function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==3){
+        getBusquedaGeneracionPokemones(4,function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 4){
+        getBusquedaGeneracionPokemones(5,function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==5){
+        getBusquedaGeneracionPokemones(6,function(data){datos=data});    
             //Hace algo//
         }else if (this.posActual == 6){
+        getBusquedaGeneracionPokemones(7,function(data){datos=data});
             //Hace algo//
-        }   
+        }
+
+        return datos;   
     }
 }

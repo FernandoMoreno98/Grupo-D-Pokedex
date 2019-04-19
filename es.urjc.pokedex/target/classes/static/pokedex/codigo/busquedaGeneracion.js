@@ -2,9 +2,9 @@ class BusquedaGeneracion extends Escena{
 	constructor(plantilla){
 		super();
 		this.plantilla = plantilla;
-		this.indicePos = [[100,100],[120,100],[130,100],[140,100],[150,100],[160,100],[170,100]];
+		this.indicePos = [[91,168],[278,168],[465,168],[652,168],[91,301],[278,303],[465,299.5]];
 		this.posActual = 0;
-        this.idRecuadro = "spritegeneral";
+        this.idRecuadro = "spritegeneracion";
 	}
 
     pintarDatosNoFijos(){
@@ -19,44 +19,44 @@ class BusquedaGeneracion extends Escena{
     	var canvas2d=canvas.getContext("2d");
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);
     	canvas2d.drawImage(document.getElementById(this.fondo),10,8,canvas.width,canvas.height);
-    	canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-20,canvas.height);
+    	canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width,canvas.height);
 
     	//Textos Base
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("BÚSQUEDA" , 15 , 40);
+    	canvas2d.fillText("BÚSQUEDA POR GENERACIÓN" , 40 , 40);
+
+    	canvas2d.font= 'bold 35px "NeogreyMedium"';
+    	canvas2d.fillText("Elige Generación" , 270 , 130);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("Elige Generación" , 15 , 40);
+    	canvas2d.fillText("ESC salir                           ENTER aceptar                   C Configuración" , 40 , 470);
 
-    	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("ESC salir  ENTER aceptar  C Configuración" , 15 , 40);
+    	canvas2d.font= 'bold 16px "NeogreyMedium"';
+    	canvas2d.fillText("Opción" , 770 , 40);
 
-    	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("Opción" , 15 , 40);
-
-    	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("Flechas del teclado" , 50 ,100);
+    	canvas2d.font= '12px "NeogreyMedium"';
+    	canvas2d.fillText("Flechas del teclado" , 600 , 20);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("1ª" , 50 ,100);
+    	canvas2d.fillText("1a" , 155 ,240);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("2ª" , 50 ,100);
+    	canvas2d.fillText("2a" , 338 ,240);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("3ª" , 50 ,100);
+    	canvas2d.fillText("3a" , 525 ,240);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("4ª" , 50 ,100);
+    	canvas2d.fillText("4a" , 710 ,240);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("5ª" , 50 ,100);
+    	canvas2d.fillText("5a" , 150 ,372);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("6ª" , 50 ,100);
+    	canvas2d.fillText("6a" , 338 ,372);
 
     	canvas2d.font= '25px "NeogreyMedium"';
-    	canvas2d.fillText("7ª" , 50 ,100);
+    	canvas2d.fillText("7a" , 525 ,372);
 
         this.pintarDatosNoFijos();
 	}
@@ -77,22 +77,48 @@ class BusquedaGeneracion extends Escena{
         this.pintar();
     }
 
+    ArrowUpPulsado(){
+        this.posActual-=4;
+        if( this.posActual< 0){
+            this.posActual += this.indicePos.length;
+        }
+        this.pintar();
+    }
+
+    ArrowDownPulsado(){
+        this.posActual+=4;
+        if(this.posActual >= this.indicePos.length){
+            this.posActual = this.posActual % this.indicePos.length;
+        }
+        this.pintar();
+    }
+
     EnterPulsado(){
+        var datos;
         console.log("Se ha pulsado el enter en generacion");
         if(this.posActual==0){
+        getBusquedaGeneracionPokemones(1,function(data){datos=data});
           //Hace algo//
         }else if(this.posActual==1){
+        getBusquedaGeneracionPokemones(2,function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 2){
+        getBusquedaGeneracionPokemones(3,function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==3){
+        getBusquedaGeneracionPokemones(4,function(data){datos=data});
             //Hace algo//
         }else if (this.posActual == 4){
+        getBusquedaGeneracionPokemones(5,function(data){datos=data});
             //Hace algo//
         }else if(this.posActual==5){
+        getBusquedaGeneracionPokemones(6,function(data){datos=data});    
             //Hace algo//
         }else if (this.posActual == 6){
+        getBusquedaGeneracionPokemones(7,function(data){datos=data});
             //Hace algo//
-        }   
+        }
+
+        return datos;   
     }
 }
