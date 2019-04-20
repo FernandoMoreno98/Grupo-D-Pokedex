@@ -129,9 +129,9 @@ class VistaPrincipal extends Escena{
                 canvas2d.fillText(pokemonSeleccionado.generation,440,400);
                 canvas2d.fillText(pokemonSeleccionado.is_legendary,450,400);
 
-                if(pokemonImage != null){
+                //if(pokemonImage != null){
                     canvas2d.drawImage(pokemonImage,200,100)
-                }
+                //}
                 
                 //canvas2d.fillText(ArrayPosPokemonesPintar[i].pokedex_number,100,100);
                 //canvas2d.fillText(ArrayPosPokemonesPintar[i].name,100,150);               

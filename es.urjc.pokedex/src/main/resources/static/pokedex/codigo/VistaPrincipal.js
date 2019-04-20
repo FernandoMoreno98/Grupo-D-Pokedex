@@ -150,7 +150,7 @@ class VistaPrincipal extends Escena{
         this.PintarDatosNoFijos();
     	//Textos Base//
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("LISTA TOTAL DE POKÉMON" , 40 , 40);
+    	canvas2d.fillText("LISTA DE POKÉMON" , 40 , 40);
 
     	canvas2d.font= '20px "NeogreyMedium"';
     	canvas2d.fillText("ID" , 30 ,85);

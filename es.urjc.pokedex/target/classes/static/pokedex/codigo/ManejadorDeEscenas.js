@@ -284,6 +284,7 @@ class ManejadorDeEscenas {
         }
         break;
       case "c":
+      case "C":
         if(this.escena == this.vistaPrincipal){
             this.escena = this.configuracion;
             this.escenaAnterior = this.vistaPrincipal;
@@ -322,6 +323,7 @@ class ManejadorDeEscenas {
         }*/
         break;
       case "b":
+      case "B":
         if(this.escena == this.vistaPrincipal){
             this.escena = this.vistaSeleccionGeneral;
             this.escenaAnterior = this.vistaPrincipal;
@@ -353,6 +355,7 @@ class ManejadorDeEscenas {
         }*/
         break;
        case "a":
+       case "A":
         if(this.escena == this.vistaPrincipal){
             //Aún no implementado     
         }/*else if(this.escena == this.vistaSeleccionGeneral){
@@ -381,6 +384,7 @@ class ManejadorDeEscenas {
         }*/
         break;
         case "e":
+        case "E":
          if(this.escena == this.vistaPrincipal){
             //Aún no implementado  
            
@@ -410,6 +414,7 @@ class ManejadorDeEscenas {
         }*/
         break;
         case "o":
+        case "O":
         if(this.escena == this.vistaPrincipal){
             this.escena.listadePokemones.reverse();
             this.pintarEscena();
@@ -440,6 +445,7 @@ class ManejadorDeEscenas {
         }*/
         break;
         case "r":
+        case "R":
         if(this.escena == this.vistaPrincipal){
             this.escena.RPulsado();
             this.pintarEscena();
@@ -501,6 +507,11 @@ $(document).ready(function(){
     });
 });
 
+getNameInfo(function(data){
+    manejadorDeEscenas.configuracion.nombre = data;
+    manejadorDeEscenas.configuracionTexto.nombreFijado = data;
+});
+
 getColorInfo(function(data){
     manejadorDeEscenas.cambiarFondoDeTodasLasEscenas(data);
     manejadorDeEscenas.configuracion.colorfondo = data;
@@ -510,8 +521,4 @@ getColorInfo(function(data){
     manejadorDeEscenas.pintarEscena();
 });
 
-getNameInfo(function(data){
-    manejadorDeEscenas.configuracion.nombre = data;
-    manejadorDeEscenas.configuracionTexto.nombreFijado = data;
-    manejadorDeEscenas.pintarEscena();
-});
+

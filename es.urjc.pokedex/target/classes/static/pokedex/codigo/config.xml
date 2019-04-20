@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema" 
 xsi:noNamespaceSchemaLocation="config.xsd">
-	<numAplic>00000001</numAplic>
-	<nombre>Anom</nombre>
-	<color>fondorojo</color>
+	<numAplic>4655741</numAplic>
+	<nombre>pepe</nombre>
+	<color>fondoazul</color>
 	<tam>100</tam>
 </config>

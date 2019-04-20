@@ -507,6 +507,11 @@ $(document).ready(function(){
     });
 });
 
+getNameInfo(function(data){
+    manejadorDeEscenas.configuracion.nombre = data;
+    manejadorDeEscenas.configuracionTexto.nombreFijado = data;
+});
+
 getColorInfo(function(data){
     manejadorDeEscenas.cambiarFondoDeTodasLasEscenas(data);
     manejadorDeEscenas.configuracion.colorfondo = data;
@@ -516,8 +521,4 @@ getColorInfo(function(data){
     manejadorDeEscenas.pintarEscena();
 });
 
-getNameInfo(function(data){
-    manejadorDeEscenas.configuracion.nombre = data;
-    manejadorDeEscenas.configuracionTexto.nombreFijado = data;
-    manejadorDeEscenas.pintarEscena();
-});
+
