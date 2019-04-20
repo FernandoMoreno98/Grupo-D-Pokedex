@@ -207,16 +207,21 @@ class ManejadorDeEscenas {
             this.pintarEscena();
         
         }else if(this.escena == this.busquedaGeneracion){
-            //Poner el array de la lista con el string info recibido
-            var info = this.escena.EnterPulsado();
-            this.vistaPrincipal.listadePokemones = JSON.parse(info);
-            //Ajustar indice de posicion
-            this.vistaPrincipal.posActualX=0;
+                      //Poner el array de la lista con el string info recibido
+            var that = this;
+            this.escena.EnterPulsado(
+                function(data){
+                    that.vistaPrincipal.listadePokemones = JSON.parse(data);
+                    //Ajustar indice de posicion
+                    that.vistaPrincipal.posActualX=0;
+                    that.vistaPrincipal.posActualY=0;
+                    
+                    that.escena = that.vistaPrincipal;
+                    that.escenaAnterior = that.busquedaLegendarios;
 
-            this.escena = this.vistaPrincipal;
-            this.escenaAnterior = this.busquedaGeneracion;
-
-            this.pintarEscena();
+                    that.pintarEscena();
+                }
+            );
     
         }else if(this.escena == this.busquedaLegendarios){
             //Poner el array de la lista con el string info recibido
