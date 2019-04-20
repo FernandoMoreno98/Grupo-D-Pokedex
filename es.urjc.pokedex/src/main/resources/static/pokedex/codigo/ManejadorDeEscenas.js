@@ -217,7 +217,7 @@ class ManejadorDeEscenas {
                     that.vistaPrincipal.posActualY=0;
                     
                     that.escena = that.vistaPrincipal;
-                    that.escenaAnterior = that.busquedaLegendarios;
+                    that.escenaAnterior = that.busquedaGeneracion;
 
                     that.pintarEscena();
                 }
