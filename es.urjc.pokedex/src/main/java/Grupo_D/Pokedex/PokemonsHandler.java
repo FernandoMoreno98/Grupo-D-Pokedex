@@ -123,7 +123,13 @@ public class PokemonsHandler {
 		MongoDatabase db = client.getDatabase("test").withReadPreference(ReadPreference.secondary());
 	    MongoCollection<Document> coll = db.getCollection("test");
 	    
-	    Bson filter = and(or(eq("type1",tipo),eq("type2",tipo)),eq("is_legendary",1));
+	    Bson filter;
+	    if(!tipo.equals("all")) {
+	    	filter = and(or(eq("type1",tipo),eq("type2",tipo)),eq("is_legendary",1));
+	    }else {
+	    	filter = eq("is_legendary",1);
+	    }
+	    
 	    Bson projection = Projections.exclude("_id","japanese_name");
 	    List<Document> resultado = coll.find(filter).projection(projection).into(new ArrayList<Document>());
 	    
