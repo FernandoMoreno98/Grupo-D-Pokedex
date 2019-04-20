@@ -53,6 +53,10 @@ class VistaPrincipal extends Escena{
             }
         }
 
+        var pokemonSeleccionado =  ArrayPosPokemonesPintar[2]
+        
+        var pokemonImage = document.getElementById("poke"+ArrayPosPokemonesPintar[2].pokedex_number);        
+
         var campoActual = this.campos[this.posActualX];
         var longitudDelcampo = this.ComprobadorLongitudCampo(campoActual);
 
@@ -116,8 +120,16 @@ class VistaPrincipal extends Escena{
                         canvas2d.fillText(pokemon.pokedex_number,150,200+i*20);
                         canvas2d.fillText(pokemon.name,100,200+i*20);
                     }
-                }   
-        
+                }  
+
+                canvas2d.fillText(pokemonSeleccionado.name,400,400);
+                canvas2d.fillText(pokemonSeleccionado.pokedex_number,410,400);
+                canvas2d.fillText(pokemonSeleccionado.type1,420,400);
+                canvas2d.fillText(pokemonSeleccionado.type2,430,400);
+                canvas2d.fillText(pokemonSeleccionado.generation,440,400);
+                canvas2d.fillText(pokemonSeleccionado.is_legendary,450,400);
+
+                canvas2d.drawImage(pokemonImage,200,100)
                 //canvas2d.fillText(ArrayPosPokemonesPintar[i].pokedex_number,100,100);
                 //canvas2d.fillText(ArrayPosPokemonesPintar[i].name,100,150);               
 

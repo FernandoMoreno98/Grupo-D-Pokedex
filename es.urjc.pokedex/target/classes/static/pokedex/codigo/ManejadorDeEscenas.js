@@ -463,6 +463,19 @@ class ManejadorDeEscenas {
 	}
 }
 
+var ArrayImagenesPokemones = new Array();
+
+for(var i = 0; i< 801 ; i++){
+   
+    var img = new Image(256,256);
+    img.src = "pokedex/pokemon/" + i + ".png"
+    img.id = "poke" +i;
+    img.style.cssText = 'display:none';
+
+    document.body.appendChild(img);
+    ArrayImagenesPokemones.push(img);
+}
+
 var musicaIsFalse = false;
 
 var manejadorDeEscenas = new ManejadorDeEscenas();
@@ -470,6 +483,7 @@ var manejadorDeEscenas = new ManejadorDeEscenas();
 var bgm = document.getElementById("musicaFondo");
 bgm.preload = "auto";
 bgm.loop = true;
+
 
 $(document).ready(function(){
 	$(document).keydown(function(event){
