@@ -125,9 +125,19 @@ class VistaPrincipal extends Escena{
                 canvas2d.fillText(pokemonSeleccionado.name,400,400);
                 canvas2d.fillText(pokemonSeleccionado.pokedex_number,410,400);
                 canvas2d.fillText(pokemonSeleccionado.type1,420,400);
-                canvas2d.fillText(pokemonSeleccionado.type2,430,400);
+                if(pokemonSeleccionado.type2 != ""){
+                    canvas2d.fillText(pokemonSeleccionado.type2,430,400);
+                }else{
+                    canvas2d.fillText("---",430,400);
+                }
+                
                 canvas2d.fillText(pokemonSeleccionado.generation,440,400);
-                canvas2d.fillText(pokemonSeleccionado.is_legendary,450,400);
+                if(pokemonSeleccionado.is_legendary == 1){
+                    canvas2d.fillText("SÍ",450,400);
+                }else{
+                    canvas2d.fillText("NO",450,400);
+                }
+                
 
                 //if(pokemonImage != null){
                     canvas2d.drawImage(pokemonImage,200,100)
