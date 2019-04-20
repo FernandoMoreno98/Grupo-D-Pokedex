@@ -134,58 +134,58 @@ class VistaSeleccionTipos extends Escena{
     EnterPulsado(request){
         console.log("Se ha pulsado el enter en tipos");
         if(this.posActual==0){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("bug",function(data){request(data)});
           //Hace algo//
         }else if(this.posActual==1){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("dark",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 2){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("dragon",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==3){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("electric",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 4){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("fairy",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==5){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("fight",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 6){
             getBusquedaTipoPokemones("fire",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==7){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("flying",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 8){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("ghost",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==9){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("grass",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 10){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("ground",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==11){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("ice",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 12){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("normal",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==13){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("poison",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 14){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("psychic",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==15){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("rock",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 16){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("steel",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==17){
-            getBusquedaTipoPokemones("fire",function(data){request(data)});
+            getBusquedaTipoPokemones("water",function(data){request(data)});
             //Hace algo//
         }       
     }
