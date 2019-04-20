@@ -190,20 +190,13 @@ class ManejadorDeEscenas {
         }else*/ 
         if(this.escena == this.vistaSeleccionTipos){
             //Poner el array de la lista con el string info recibido
-<<<<<<< HEAD
             var that = this;
-=======
-            var this = that;
->>>>>>> 73e801eeb58ca0d825cae6afce5841cc70301af5
             this.escena.EnterPulsado(
                 function(data){
-                    that.vistaPrincipal.listadePokemones = JSON.parse(info);
+                    that.vistaPrincipal.listadePokemones = JSON.parse(data);
                     //Ajustar indice de posicion
                     that.vistaPrincipal.posActualX=0;
-<<<<<<< HEAD
-=======
                     that.vistaPrincipal.posActualY=0;
->>>>>>> 73e801eeb58ca0d825cae6afce5841cc70301af5
 
                     that.escena = that.vistaPrincipal;
                     that.escenaAnterior = that.vistaSeleccionTipos;
