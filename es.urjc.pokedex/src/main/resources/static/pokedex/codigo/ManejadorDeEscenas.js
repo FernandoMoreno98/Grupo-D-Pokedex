@@ -190,7 +190,7 @@ class ManejadorDeEscenas {
         }else*/ 
         if(this.escena == this.vistaSeleccionTipos){
             //Poner el array de la lista con el string info recibido
-            var this = that;
+            var that = this;
             this.escena.EnterPulsado(
                 function(data){
                     that.vistaPrincipal.listadePokemones = JSON.parse(info);
