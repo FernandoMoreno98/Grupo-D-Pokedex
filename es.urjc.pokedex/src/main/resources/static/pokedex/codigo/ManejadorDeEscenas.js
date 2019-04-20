@@ -516,4 +516,8 @@ getColorInfo(function(data){
     manejadorDeEscenas.pintarEscena();
 });
 
-
+getNameInfo(function(data){
+    manejadorDeEscenas.configuracion.nombre = data;
+    manejadorDeEscenas.configuracionTexto.nombreFijado = data;
+    manejadorDeEscenas.pintarEscena();
+});
