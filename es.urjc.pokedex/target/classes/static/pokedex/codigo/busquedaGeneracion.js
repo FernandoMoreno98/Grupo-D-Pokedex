@@ -26,7 +26,7 @@ class BusquedaGeneracion extends Escena{
     	canvas2d.fillText("BÚSQUEDA POR GENERACIÓN" , 40 , 40);
 
     	canvas2d.font= 'bold 35px "NeogreyMedium"';
-    	canvas2d.fillText("Elige Generación" , 270 , 130);
+    	canvas2d.fillText("Elige generación" , 270 , 130);
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText("ESC salir                           ENTER aceptar                   C Configuración" , 40 , 470);
