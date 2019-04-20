@@ -50,13 +50,13 @@ public class PokemonsHandler {
         
         XPathFactory xpath = XPathFactory.instance();
 
-        XPathExpression expr = xpath.compile("/config/nombre[1]");
+        XPathExpression expr = xpath.compile("/config/nombre[1]/text()");
         
         List<Text> nodes = expr.evaluate(d);
         for (int i = 0; i < nodes.size(); i++) {
         	name = nodes.get(i).getText();
         }
-        
+        System.out.println("Name "+name);
         return name;
     }
 	
