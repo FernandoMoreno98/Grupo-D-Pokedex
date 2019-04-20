@@ -411,8 +411,7 @@ class ManejadorDeEscenas {
         break;
         case "o":
         if(this.escena == this.vistaPrincipal){
-            this.escena = this.vistaSeleccionGeneral;
-            this.escenaAnterior = this.vistaPrincipal;
+            this.escena.listadePokemones.reverse();
             this.pintarEscena();
 
         }/*else if(this.escena == this.vistaSeleccionGeneral){
