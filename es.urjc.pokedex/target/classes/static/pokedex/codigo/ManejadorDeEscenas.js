@@ -504,9 +504,9 @@ $(document).ready(function(){
 getColorInfo(function(data){
     manejadorDeEscenas.cambiarFondoDeTodasLasEscenas(data);
     manejadorDeEscenas.configuracion.colorfondo = data;
-    if(data == "fondoazul"){ manejadorDeEscenas.configuracioncolor.posActual=2}
-    if(data == "fondorojo"){ manejadorDeEscenas.configuracioncolor.posActual=0}
-    if(data == "fondoverde"){ manejadorDeEscenas.configuracioncolor.posActual=1}
+    if(data == "fondoazul"){ manejadorDeEscenas.configuracionColor.posActual=2}
+    if(data == "fondorojo"){ manejadorDeEscenas.configuracionColor.posActual=0}
+    if(data == "fondoverde"){ manejadorDeEscenas.configuracionColor.posActual=1}
     manejadorDeEscenas.pintarEscena();
 });
 
