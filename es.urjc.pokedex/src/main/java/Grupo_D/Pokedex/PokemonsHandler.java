@@ -17,6 +17,9 @@ import org.bson.io.BasicOutputBuffer;
 import org.bson.json.JsonMode;
 import org.bson.json.JsonWriter;
 import org.bson.json.JsonWriterSettings;
+import org.jdom2.Text;
+import org.jdom2.xpath.XPathExpression;
+import org.jdom2.xpath.XPathFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,6 +44,39 @@ public class PokemonsHandler {
 	//https://stackoverflow.com/questions/46529087/how-to-directly-convert-mongodb-document-do-jackson-jsonnode-in-java
 
 	//CAMBIAR DATABASE Y COLLECTION DE TEST A SU CORRESPONDIENTE !!!!!
+	@GetMapping("/name")
+	public String getColorInfo() {
+        String color = null;
+        
+        XPathFactory xpath = XPathFactory.newInstance("pokedex/codigo/config.xml");
+
+        XPathExpression expr = xpath.compile("/config/color[1]");
+        
+        List<Text> nodes = expr.evaluate(xpath);
+        for (int i = 0; i < nodes.size(); i++) {
+        	color = nodes.get(i).getText();
+        }
+        
+        return color;
+    }
+	
+	@GetMapping("/color")
+	public String getNameInfo() {
+        String name = null;
+
+        XPathFactory xpath = XPathFactory.newInstance("pokedex/codigo/config.xml");
+
+        // Creamos una expresion en XPath
+        XPathExpression expr = xpath.compile("/config/nombre[1]");
+        
+        List<Text> nodes = expr.evaluate(xpath);
+        for (int i = 0; i < nodes.size(); i++) {
+        	name = nodes.get(i).getText();
+        }
+        
+        return name;
+    }
+	
 	@GetMapping("/pokemonesAll")
 	public String FindAllPokemons(){
 		System.out.println("Se ejecuta el PokemonsHandler");

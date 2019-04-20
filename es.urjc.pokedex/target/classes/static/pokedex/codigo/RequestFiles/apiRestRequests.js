@@ -52,3 +52,29 @@ function getBusquedaLegendarioPokemones(tipo,request) {
         console.log("Los Pokemones Legendarios de este tipo son :" + data);
     })
 }
+
+function getNameInfo(request) {
+    $.ajax({
+        method: 'GET',
+        url: 'http://'+ IPserver+ '/name',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).done(function (data) {
+        request(data);
+        console.log("El nombre base del xml es :" + data);
+    })
+}
+
+function getColorInfo(request) {
+    $.ajax({
+        method: 'GET',
+        url: 'http://'+ IPserver+ '/color',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).done(function (data) {
+        request(data);
+        console.log("El color base del xml es :" + data);
+    })
+}

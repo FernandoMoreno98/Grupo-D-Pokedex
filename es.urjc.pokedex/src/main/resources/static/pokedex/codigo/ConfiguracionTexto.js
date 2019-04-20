@@ -3,7 +3,7 @@ class ConfiguracionTexto extends Escena{
 	constructor(plantilla){
 		super();
 		this.plantilla = plantilla;
-        this.nombreFijado = "Anonimo";
+        this.nombreFijado = getNameInfo(function(data){request(data)});
         this.nombre="Anonimo";
 	}
 
