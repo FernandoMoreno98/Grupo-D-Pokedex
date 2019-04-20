@@ -133,61 +133,61 @@ class BusquedaLegendarios extends Escena{
      EnterPulsado(request){
         console.log("Se ha pulsado el enter en busqueda de legendarios");
         if(this.posActual==0){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("bug",function(data){request(data)});
           //Hace algo//
         }else if(this.posActual==1){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("dark",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 2){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("dragon",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==3){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("electric",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 4){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("fairy",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==5){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("fight",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 6){
             getBusquedaLegendarioPokemones("fire",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==7){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("flying",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 8){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("ghost",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==9){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("grass",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 10){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("ground",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==11){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("ice",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 12){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("normal",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==13){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("poison",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 14){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("psychic",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==15){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("rock",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 16){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("steel",function(data){request(data)});
             //Hace algo//
         }else if(this.posActual==17){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("water",function(data){request(data)});
             //Hace algo//
         }else if (this.posActual == 18){
-            getBusquedaLegendarioPokemones("fire",function(data){request(data)});
+            getBusquedaLegendarioPokemones("all",function(data){request(data)});
             //Hace algo//
         }       
     }
