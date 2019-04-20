@@ -1,42 +1,34 @@
 package Grupo_D.Pokedex;
 
-import java.io.ByteArrayInputStream;
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.or;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bson.BsonBinaryWriter;
-import org.bson.BsonDocument;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.bson.Document;
-import org.bson.codecs.DocumentCodec;
-import org.bson.codecs.EncoderContext;
 import org.bson.conversions.Bson;
-import org.bson.io.BasicOutputBuffer;
-import org.bson.json.JsonMode;
-import org.bson.json.JsonWriter;
-import org.bson.json.JsonWriterSettings;
 import org.jdom2.Text;
+import org.jdom2.input.DOMBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.xml.sax.SAXException;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.ReadPreference;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Projections;
-
-import de.undercouch.bson4jackson.BsonFactory;
-import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.or;
-import static com.mongodb.client.model.Filters.and;
 
 @RestController
 public class PokemonsHandler {
@@ -45,36 +37,52 @@ public class PokemonsHandler {
 
 	//CAMBIAR DATABASE Y COLLECTION DE TEST A SU CORRESPONDIENTE !!!!!
 	@GetMapping("/name")
-	public String getColorInfo() {
-        String color = null;
+	public String getNameInfo() throws ParserConfigurationException, SAXException, IOException {
+        String name = "";
         
-        XPathFactory xpath = XPathFactory.newInstance("pokedex/codigo/config.xml");
-
-        XPathExpression expr = xpath.compile("/config/color[1]");
+        String workingDir = System.getProperty("user.dir");
         
-        List<Text> nodes = expr.evaluate(xpath);
-        for (int i = 0; i < nodes.size(); i++) {
-        	color = nodes.get(i).getText();
-        }
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        org.w3c.dom.Document doc =  builder.parse(workingDir + "/src/main/resources/static/pokedex/codigo/config.xml");
         
-        return color;
-    }
-	
-	@GetMapping("/color")
-	public String getNameInfo() {
-        String name = null;
+        org.jdom2.Document d = new DOMBuilder().build(doc);
+        
+        XPathFactory xpath = XPathFactory.instance();
 
-        XPathFactory xpath = XPathFactory.newInstance("pokedex/codigo/config.xml");
-
-        // Creamos una expresion en XPath
         XPathExpression expr = xpath.compile("/config/nombre[1]");
         
-        List<Text> nodes = expr.evaluate(xpath);
+        List<Text> nodes = expr.evaluate(d);
         for (int i = 0; i < nodes.size(); i++) {
         	name = nodes.get(i).getText();
         }
         
         return name;
+    }
+	
+	@GetMapping("/color")
+	public String getColorInfo() throws ParserConfigurationException, SAXException, IOException {
+        String color = "";
+        
+        String workingDir = System.getProperty("user.dir");
+        
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        org.w3c.dom.Document doc =  builder.parse(workingDir + "/src/main/resources/static/pokedex/codigo/config.xml");
+        
+        org.jdom2.Document d = new DOMBuilder().build(doc);
+        
+        XPathFactory xpath = XPathFactory.instance();
+
+        // Creamos una expresion en XPath
+        XPathExpression expr = xpath.compile("/config/color[1]/text()");
+        
+        List<Text> nodes = expr.evaluate(d);
+        for (int i = 0; i < nodes.size(); i++) {
+        	color = nodes.get(i).getText();
+        }
+        System.out.println("Color "+color);
+        return color;
     }
 	
 	@GetMapping("/pokemonesAll")

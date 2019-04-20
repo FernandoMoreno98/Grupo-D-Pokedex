@@ -3,6 +3,6 @@
 xsi:noNamespaceSchemaLocation="config.xsd">
 	<numAplic>00000001</numAplic>
 	<nombre>Anom</nombre>
-	<color>rojo</color>
+	<color>fondorojo</color>
 	<tam>100</tam>
 </config>
