@@ -60,31 +60,32 @@ class VistaPrincipal extends Escena{
                     this.plantilla = "listacorto";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
+                    canvas2d.font= '10px "NeogreyMedium"';
                     canvas2d.fillText(this.campos[this.posActualX],100,100);
-                    canvas2d.fillText(this.campos[this.posActualX+1],100,100);
-                    canvas2d.fillText(this.campos[this.posActualX+2],100,100);
-                    canvas2d.fillText(this.campos[this.posActualX+3],100,100);
+                    canvas2d.fillText(this.campos[this.posActualX+1],200,100);
+                    canvas2d.fillText(this.campos[this.posActualX+2],300,100);
+                    canvas2d.fillText(this.campos[this.posActualX+3],400,100);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
 
                         var pokemon = ArrayPosPokemonesPintar[i];
 
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],100,100);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],100,100);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+2]],100,100);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+3]],100,100);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],300,200+i*20);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],400,200+i*20);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX+2]],500,200+i*20);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX+3]],600,200+i*20);
 
-                        canvas2d.fillText(pokemon.pokedex_number,100,100);
-                        canvas2d.fillText(pokemon.name,100,150);
+                        canvas2d.fillText(pokemon.pokedex_number,150,200+i*20);
+                        canvas2d.fillText(pokemon.name,100,200+i*20);
                     }
 
                 }else if(longitudDelcampo==1){//media plantilla
                     this.plantilla = "listamedio";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
-
+                    canvas2d.font= '10px "NeogreyMedium"';
                     canvas2d.fillText(this.campos[this.posActualX],100,100);
-                    canvas2d.fillText(this.campos[this.posActualX+1],100,100);
+                    canvas2d.fillText(this.campos[this.posActualX+1],200,100);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
 
@@ -103,16 +104,17 @@ class VistaPrincipal extends Escena{
                     this.plantilla = "listalargo";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
+                    canvas2d.font= '10px "NeogreyMedium"';
                     canvas2d.fillText(this.campos[this.posActualX],100,100);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
 
                         var pokemon = ArrayPosPokemonesPintar[i];
 
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],100,100);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],300,200+i*20);
 
-                        canvas2d.fillText(pokemon.pokedex_number,100,100);
-                        canvas2d.fillText(pokemon.name,100,150);
+                        canvas2d.fillText(pokemon.pokedex_number,150,200+i*20);
+                        canvas2d.fillText(pokemon.name,100,200+i*20);
                     }
                 }   
         
@@ -178,18 +180,32 @@ class VistaPrincipal extends Escena{
     }
 
     ArrowRightPulsado(){
-        this.posActualX+=1
-        if(this.posActualX >= this.listadePokemones[this.posActualY].length){
-            this.posActualX=0
+        if(this.posActualX+4<this.campos.length){
+            var longitudDelCampo = this.ComprobadorLongitudCampo(this.campos[this.posActualX]) 
+            if(longitudDelCampo == 0){
+                this.posActualX+=4
+            }else if(longitudDelCampo == 1){
+                this.posActualX+=2
+            }else{
+                this.posActualX+=1
+            }
         }
+
         this.pintar();
     }
 
     ArrowLeftPulsado(){
-        this.posActualX-=1;
-        if( this.posActualX< 0){
-            this.posActualX  = this.listadePokemones[this.posActualY].length - 1;
+        if(this.posActualX>0){
+            var longitudCampoA = this.ComprobadorLongitudCampo(this.campos[this.posActualX-1]) 
+            if(longitudCampoA == 0){
+                this.posActualX-=4
+            }else if(longitudCampoA == 1){
+                this.posActualX-=2
+            }else{
+                this.posActualX-=1
+            }
         }
+        
         this.pintar();
     }
 
