@@ -64,63 +64,68 @@ class VistaPrincipal extends Escena{
                     this.plantilla = "listacorto";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
-                    canvas2d.font= '10px "NeogreyMedium"';
-                    canvas2d.fillText(this.campos[this.posActualX],100,100);
-                    canvas2d.fillText(this.campos[this.posActualX+1],200,100);
-                    canvas2d.fillText(this.campos[this.posActualX+2],300,100);
-                    canvas2d.fillText(this.campos[this.posActualX+3],400,100);
+                    canvas2d.font= '8px "NeogreyMedium"';
+                    canvas2d.fillText(this.campos[this.posActualX],235,85);
+                    canvas2d.fillText(this.campos[this.posActualX+1],320,85);
+                    canvas2d.fillText(this.campos[this.posActualX+2],405,85);
+                    canvas2d.fillText(this.campos[this.posActualX+3],490,85);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
 
                         var pokemon = ArrayPosPokemonesPintar[i];
+                        
+                        canvas2d.font= '14px "NeogreyMedium"';
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],245,(i*2)+135+i*55);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],330,(i*2)+135+i*55);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX+2]],415,(i*2)+135+i*55);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX+3]],500,(i*2)+135+i*55);
 
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],300,200+i*20);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],400,200+i*20);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+2]],500,200+i*20);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+3]],600,200+i*20);
-
-                        canvas2d.fillText(pokemon.pokedex_number,150,200+i*20);
-                        canvas2d.fillText(pokemon.name,100,200+i*20);
+                        canvas2d.fillText(pokemon.pokedex_number,30,(i*2)+135+i*55);
+                        canvas2d.fillText(pokemon.name,110,(i*2)+135+i*55);
                     }
 
                 }else if(longitudDelcampo==1){//media plantilla
                     this.plantilla = "listamedio";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
-                    canvas2d.font= '10px "NeogreyMedium"';
-                    canvas2d.fillText(this.campos[this.posActualX],100,100);
-                    canvas2d.fillText(this.campos[this.posActualX+1],200,100);
+                    canvas2d.font= '12px "NeogreyMedium"';
+                    canvas2d.fillText(this.campos[this.posActualX],245,85);
+                    canvas2d.fillText(this.campos[this.posActualX+1],415,85);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
                        
                         var pokemon = ArrayPosPokemonesPintar[i];
+                        
+                        canvas2d.font= '10px "NeogreyMedium"';
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],245,(i*2)+135+i*55);
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],415,(i*2)+135+i*55);
 
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],300,200+i*20);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],400,200+i*20);
-
-                        canvas2d.fillText(pokemon.pokedex_number,150,200+i*20);
-                        canvas2d.fillText(pokemon.name,100,200+i*20);
+                        canvas2d.font= '14px "NeogreyMedium"';
+                        canvas2d.fillText(pokemon.pokedex_number,30,(i*2)+135+i*55);
+                        canvas2d.fillText(pokemon.name,110,(i*2)+135+i*55);
                     }
 
                 }else{//larga plantilla
                     this.plantilla = "listalargo";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
-                    canvas2d.font= '10px "NeogreyMedium"';
-                    canvas2d.fillText(this.campos[this.posActualX],100,100);
+                    canvas2d.font= '14px "NeogreyMedium"';
+                    canvas2d.fillText(this.campos[this.posActualX],365,85);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
 
                         var pokemon = ArrayPosPokemonesPintar[i];
 
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],300,200+i*20);
-
-                        canvas2d.fillText(pokemon.pokedex_number,150,200+i*20);
-                        canvas2d.fillText(pokemon.name,100,200+i*20);
+                        canvas2d.font= '7px "NeogreyMedium"';
+                        canvas2d.fillText(pokemon[this.campos[this.posActualX]],240,(i*2)+135+i*55);
+                        
+                        canvas2d.font= '14px "NeogreyMedium"';
+                        canvas2d.fillText(pokemon.pokedex_number,30,(i*2)+135+i*55);
+                        canvas2d.fillText(pokemon.name,110,(i*2)+135+i*55);
                     }
                 }  
 
-                canvas2d.fillText(pokemonSeleccionado.name,400,400);
+                /*canvas2d.fillText(pokemonSeleccionado.name,400,400);
                 canvas2d.fillText(pokemonSeleccionado.pokedex_number,410,400);
                 canvas2d.fillText(pokemonSeleccionado.type1,420,400);
                 if(pokemonSeleccionado.type2 != ""){
@@ -134,7 +139,7 @@ class VistaPrincipal extends Escena{
                     canvas2d.fillText("SÍ",450,400);
                 }else{
                     canvas2d.fillText("NO",450,400);
-                }
+                }*/
                 
             
 
@@ -142,10 +147,10 @@ class VistaPrincipal extends Escena{
                 $.get("pokedex/pokemon/" + ArrayPosPokemonesPintar[2].pokedex_number + ".png",function(){    
                 })
                     .done(function(){
-                        canvas2d.drawImage(pokemonImage,200,100);
+                        canvas2d.drawImage(pokemonImage,582,120);
                     })
                     .fail(function(){
-                        canvas2d.drawImage(document.getElementById("alt"),200,100);
+                        canvas2d.drawImage(document.getElementById("alt"),582,120);
                     });             
     }
 
