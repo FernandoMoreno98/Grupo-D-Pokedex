@@ -55,7 +55,7 @@ class VistaPrincipal extends Escena{
 
         var pokemonSeleccionado =  ArrayPosPokemonesPintar[2]
         
-        var pokemonImage = document.getElementById("poke"+ArrayPosPokemonesPintar[2].pokedex_number);        
+        var pokemonImage = document.getElementById("poke"+ArrayPosPokemonesPintar[2].pokedex_number);    
 
         var campoActual = this.campos[this.posActualX];
         var longitudDelcampo = this.ComprobadorLongitudCampo(campoActual);
@@ -92,8 +92,6 @@ class VistaPrincipal extends Escena{
                     canvas2d.fillText(this.campos[this.posActualX+1],200,100);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
-
-                        //console.log(ArrayPosPokemonesPintar[i].type1);
                        
                         var pokemon = ArrayPosPokemonesPintar[i];
 
@@ -138,14 +136,17 @@ class VistaPrincipal extends Escena{
                     canvas2d.fillText("NO",450,400);
                 }
                 
+            
 
-                //if(pokemonImage != null){
-                    canvas2d.drawImage(pokemonImage,200,100)
-                //}
-                
-                //canvas2d.fillText(ArrayPosPokemonesPintar[i].pokedex_number,100,100);
-                //canvas2d.fillText(ArrayPosPokemonesPintar[i].name,100,150);               
-
+                //Se pinta el pokémon sólo si existe su imagen. Si no, imagen de error
+                $.get("pokedex/pokemon/" + ArrayPosPokemonesPintar[2].pokedex_number + ".png",function(){    
+                })
+                    .done(function(){
+                        canvas2d.drawImage(pokemonImage,200,100);
+                    })
+                    .fail(function(){
+                        canvas2d.drawImage(document.getElementById("alt"),200,100);
+                    });             
     }
 
 	pintar(fondo){
@@ -155,7 +156,6 @@ class VistaPrincipal extends Escena{
     	var canvas2d=canvas.getContext("2d");
     	canvas2d.clearRect(0, 0, canvas.width, canvas.height);
     	canvas2d.drawImage(document.getElementById(this.fondo),10,8,canvas.width,canvas.height);
-    	//canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
         this.PintarDatosNoFijos();
     	//Textos Base//

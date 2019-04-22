@@ -55,7 +55,7 @@ class VistaPrincipal extends Escena{
 
         var pokemonSeleccionado =  ArrayPosPokemonesPintar[2]
         
-        var pokemonImage = document.getElementById("poke"+ArrayPosPokemonesPintar[2].pokedex_number);        
+        var pokemonImage = document.getElementById("poke"+ArrayPosPokemonesPintar[2].pokedex_number);    
 
         var campoActual = this.campos[this.posActualX];
         var longitudDelcampo = this.ComprobadorLongitudCampo(campoActual);
@@ -125,13 +125,32 @@ class VistaPrincipal extends Escena{
                 canvas2d.fillText(pokemonSeleccionado.name,400,400);
                 canvas2d.fillText(pokemonSeleccionado.pokedex_number,410,400);
                 canvas2d.fillText(pokemonSeleccionado.type1,420,400);
-                canvas2d.fillText(pokemonSeleccionado.type2,430,400);
+                if(pokemonSeleccionado.type2 != ""){
+                    canvas2d.fillText(pokemonSeleccionado.type2,430,400);
+                }else{
+                    canvas2d.fillText("---",430,400);
+                }
+                
                 canvas2d.fillText(pokemonSeleccionado.generation,440,400);
-                canvas2d.fillText(pokemonSeleccionado.is_legendary,450,400);
-
+                if(pokemonSeleccionado.is_legendary == 1){
+                    canvas2d.fillText("SÍ",450,400);
+                }else{
+                    canvas2d.fillText("NO",450,400);
+                }
+                
+            
                 //if(pokemonImage != null){
-                    canvas2d.drawImage(pokemonImage,200,100)
+                    //canvas2d.drawImage(pokemonImage,200,100);
                 //}
+
+                $.get("pokedex/pokemon/" + ArrayPosPokemonesPintar[2].pokedex_number + ".png",function(){    
+                })
+                    .done(function(){
+                        canvas2d.drawImage(pokemonImage,200,100);
+                    })
+                    .fail(function(){
+                        canvas2d.drawImage(document.getElementById("alt"),200,100);
+                    });
                 
                 //canvas2d.fillText(ArrayPosPokemonesPintar[i].pokedex_number,100,100);
                 //canvas2d.fillText(ArrayPosPokemonesPintar[i].name,100,150);               
@@ -150,7 +169,7 @@ class VistaPrincipal extends Escena{
         this.PintarDatosNoFijos();
     	//Textos Base//
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("LISTA TOTAL DE POKÉMON" , 40 , 40);
+    	canvas2d.fillText("LISTA DE POKÉMON" , 40 , 40);
 
     	canvas2d.font= '20px "NeogreyMedium"';
     	canvas2d.fillText("ID" , 30 ,85);

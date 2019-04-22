@@ -474,7 +474,7 @@ var ArrayImagenesPokemones = new Array();
 for(var i = 0; i< 801 ; i++){
    
     var img = new Image(256,256);
-    img.src = "pokedex/pokemon/" + i + ".png"
+    img.src = "pokedex/pokemon/" + i + ".png";
     img.id = "poke" +i;
     img.style.cssText = 'display:none';
 
