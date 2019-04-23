@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema" 
 xsi:noNamespaceSchemaLocation="config.xsd">
 	<numAplic>00000001</numAplic>
-	<nombre>pepe</nombre>
-	<color>fondoazul</color>
+	<nombre>Daniel Burón</nombre>
+	<color>fondorojo</color>
 	<tam>100</tam>
 </config>

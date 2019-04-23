@@ -60,6 +60,30 @@ public class PokemonsHandler {
         return name;
     }
 	
+	@GetMapping("/tamano")
+	public String getTamInfo() throws ParserConfigurationException, SAXException, IOException {
+        String tam = "";
+        
+        String workingDir = System.getProperty("user.dir");
+        
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        org.w3c.dom.Document doc =  builder.parse(workingDir + "/src/main/resources/static/pokedex/codigo/config.xml");
+        
+        org.jdom2.Document d = new DOMBuilder().build(doc);
+        
+        XPathFactory xpath = XPathFactory.instance();
+
+        XPathExpression expr = xpath.compile("/config/tam[1]/text()");
+        
+        List<Text> nodes = expr.evaluate(d);
+        for (int i = 0; i < nodes.size(); i++) {
+        	tam = nodes.get(i).getText();
+        }
+        System.out.println("Tamaño "+tam);
+        return tam;
+    }
+	
 	@GetMapping("/color")
 	public String getColorInfo() throws ParserConfigurationException, SAXException, IOException {
         String color = "";

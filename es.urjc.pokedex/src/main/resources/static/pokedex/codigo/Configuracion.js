@@ -101,6 +101,22 @@ class Configuracion extends Escena{
         }else if(this.posActual==2){
             return configuracionColor;
         }else if(this.posActual==3){
+        	console.log("Pulsado")
+        	if(this.tamano-50<=0){
+        		this.tamano = 100;
+        	}else{
+        		this.tamano -=50;
+        	}
+        	var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            context.clearRect(0, 0, canvas.width+10, canvas.height+10);
+            if(this.tamano==100){
+                context.scale(2, 2);
+            }
+            else if(this.tamano==50){
+                context.scale(0.5, 0.5);
+            }
+            this.pintar();
             return null;
         }
         

@@ -78,3 +78,16 @@ function getColorInfo(request) {
         console.log("El color base del xml es :" + data);
     })
 }
+
+function getTamInfo(request) {
+    $.ajax({
+        method: 'GET',
+        url: 'http://'+ IPserver+ '/tamano',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).done(function (data) {
+        request(data);
+        console.log("El tamaño base del xml es :" + data);
+    })
+}

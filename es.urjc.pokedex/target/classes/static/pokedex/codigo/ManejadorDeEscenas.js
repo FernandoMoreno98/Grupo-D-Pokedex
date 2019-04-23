@@ -486,6 +486,14 @@ var musicaIsFalse = false;
 
 var manejadorDeEscenas = new ManejadorDeEscenas();
 
+getTamInfo(function(data){
+    manejadorDeEscenas.configuracion.tamano = data;
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    context.scale(manejadorDeEscenas.configuracion.tamano/100, manejadorDeEscenas.configuracion.tamano/100);
+    manejadorDeEscenas.pintarEscena();
+});
+
 var bgm = document.getElementById("musicaFondo");
 bgm.preload = "auto";
 bgm.loop = true;
@@ -510,6 +518,7 @@ $(document).ready(function(){
 getNameInfo(function(data){
     manejadorDeEscenas.configuracion.nombre = data;
     manejadorDeEscenas.configuracionTexto.nombreFijado = data;
+    manejadorDeEscenas.configuracionTexto.nombre = data;
 });
 
 getColorInfo(function(data){
@@ -518,7 +527,4 @@ getColorInfo(function(data){
     if(data == "fondoazul"){ manejadorDeEscenas.configuracionColor.posActual=2}
     if(data == "fondorojo"){ manejadorDeEscenas.configuracionColor.posActual=0}
     if(data == "fondoverde"){ manejadorDeEscenas.configuracionColor.posActual=1}
-    manejadorDeEscenas.pintarEscena();
 });
-
-

@@ -76,7 +76,11 @@ class VistaPrincipal extends Escena{
                         
                         canvas2d.font= '14px "NeogreyMedium"';
                         canvas2d.fillText(pokemon[this.campos[this.posActualX]],245,(i*2)+135+i*55);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],330,(i*2)+135+i*55);
+                        if(pokemon[this.campos[this.posActualX+1]] == null){
+                        	canvas2d.fillText("",330,(i*2)+135+i*55);
+                        }else{
+                        	canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],330,(i*2)+135+i*55);
+                        }
                         canvas2d.fillText(pokemon[this.campos[this.posActualX+2]],415,(i*2)+135+i*55);
                         canvas2d.fillText(pokemon[this.campos[this.posActualX+3]],500,(i*2)+135+i*55);
 
@@ -98,7 +102,12 @@ class VistaPrincipal extends Escena{
                         
                         canvas2d.font= '10px "NeogreyMedium"';
                         canvas2d.fillText(pokemon[this.campos[this.posActualX]],245,(i*2)+135+i*55);
-                        canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],415,(i*2)+135+i*55);
+                        if(pokemon[this.campos[this.posActualX+1]] == undefined){
+                        	canvas2d.fillText("",415,(i*2)+135+i*55);
+                        }else{
+                        	canvas2d.fillText(pokemon[this.campos[this.posActualX+1]],415,(i*2)+135+i*55);
+                        }
+                        
 
                         canvas2d.font= '14px "NeogreyMedium"';
                         canvas2d.fillText(pokemon.pokedex_number,30,(i*2)+135+i*55);
@@ -125,21 +134,26 @@ class VistaPrincipal extends Escena{
                     }
                 }  
 
-                /*canvas2d.fillText(pokemonSeleccionado.name,400,400);
-                canvas2d.fillText(pokemonSeleccionado.pokedex_number,410,400);
-                canvas2d.fillText(pokemonSeleccionado.type1,420,400);
+                canvas2d.fillText("Nombre:",600,320);
+                canvas2d.fillText(pokemonSeleccionado.name,710,320);
+                canvas2d.fillText("Número:",600,340);
+                canvas2d.fillText(pokemonSeleccionado.pokedex_number,710,340);
+                canvas2d.fillText("Tipo 1:",600,360);
+                canvas2d.fillText(pokemonSeleccionado.type1,710,360);
+                canvas2d.fillText("Tipo 2:",600,380);
                 if(pokemonSeleccionado.type2 != ""){
-                    canvas2d.fillText(pokemonSeleccionado.type2,430,400);
+                    canvas2d.fillText(pokemonSeleccionado.type2,710,380);
                 }else{
-                    canvas2d.fillText("---",430,400);
+                    canvas2d.fillText("---",710,380);
                 }
-                
-                canvas2d.fillText(pokemonSeleccionado.generation,440,400);
+                canvas2d.fillText("Generación:",600,400);
+                canvas2d.fillText(pokemonSeleccionado.generation,710,400);
+                canvas2d.fillText("Legendario:",600,420);
                 if(pokemonSeleccionado.is_legendary == 1){
-                    canvas2d.fillText("SÍ",450,400);
+                    canvas2d.fillText("SÍ",710,420);
                 }else{
-                    canvas2d.fillText("NO",450,400);
-                }*/
+                    canvas2d.fillText("NO",710,420);
+                }
                 
             
 
@@ -147,10 +161,10 @@ class VistaPrincipal extends Escena{
                 $.get("pokedex/pokemon/" + ArrayPosPokemonesPintar[2].pokedex_number + ".png",function(){    
                 })
                     .done(function(){
-                        canvas2d.drawImage(pokemonImage,582,120);
+                        canvas2d.drawImage(pokemonImage,620,105,190,190);
                     })
                     .fail(function(){
-                        canvas2d.drawImage(document.getElementById("alt"),582,120);
+                        canvas2d.drawImage(document.getElementById("alt"),620,105,190,190);
                     });             
     }
 
@@ -177,7 +191,7 @@ class VistaPrincipal extends Escena{
     	canvas2d.fillText("HABILIDADES" , 50 ,10);*/
 
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
-    	canvas2d.fillText("ESC salir  B buscar A añadir E eliminar O ordenar C configuracion" , 40 ,470);
+    	canvas2d.fillText("ESC salir             B buscar             O ordenar            C configuracion" , 40 ,470);
 
     	canvas2d.font= '20px "NeogreyMedium"';
     	canvas2d.fillText("DATOS GENERALES" , 590 ,90);
