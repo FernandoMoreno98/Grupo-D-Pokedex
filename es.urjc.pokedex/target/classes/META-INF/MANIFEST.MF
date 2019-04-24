@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: es.urjc.pokedex
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: d.gudina.2016
+Built-By: lm.moreno.2016
 Implementation-Vendor-Id: es.urjc.grupoD
 Build-Jdk: 1.8.0_172
 Implementation-URL: http://maven.apache.org
