@@ -44,7 +44,7 @@ public class PokemonsHandler {
         
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        org.w3c.dom.Document doc =  builder.parse(workingDir + "/src/main/resources/static/pokedex/codigo/config.xml");
+        org.w3c.dom.Document doc =  builder.parse(PokemonsHandler.class.getResourceAsStream("config.xml"));//workingDir + "/src/main/resources/static/pokedex/codigo/config.xml"
         
         org.jdom2.Document d = new DOMBuilder().build(doc);
         
@@ -68,7 +68,7 @@ public class PokemonsHandler {
         
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        org.w3c.dom.Document doc =  builder.parse(workingDir + "/src/main/resources/static/pokedex/codigo/config.xml");
+        org.w3c.dom.Document doc =  builder.parse(PokemonsHandler.class.getResourceAsStream("config.xml"));
         
         org.jdom2.Document d = new DOMBuilder().build(doc);
         
@@ -92,7 +92,7 @@ public class PokemonsHandler {
         
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        org.w3c.dom.Document doc =  builder.parse(workingDir + "/src/main/resources/static/pokedex/codigo/config.xml");
+        org.w3c.dom.Document doc =  builder.parse(PokemonsHandler.class.getResourceAsStream("config.xml"));
         
         org.jdom2.Document d = new DOMBuilder().build(doc);
         
