@@ -1,9 +1,10 @@
 <xs:element name="color">
 	<xs:simpleType>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="rojo"/>
-			<xs:enumeration value="verde"/>
-			<xs:enumeration value="azul"/>
+			<xs:enumeration value="fondorojo"/>
+			<xs:enumeration value="fondoverde"/>
+			<xs:enumeration value="fondoazul"/>
+		</xs:restriction>
 	</xs:simpleType>
 </xs:element>
 
@@ -12,7 +13,8 @@
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="12"/>
-	</xs:restriction>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:element>
 
 <xs:element name="numAplic">
@@ -20,7 +22,8 @@
 		<xs:restriction base="xs:positiveInteger">
 			<xs:minInclusive value="00000001"/>
 			<xs:maxInclusive value="99999999"/>
-	</xs:restriction>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:element>
 
 <xs:element name="tam">
@@ -28,5 +31,6 @@
 		<xs:restriction base="xs:positiveInteger">
 			<xs:minInclusive value="1"/>
 			<xs:maxInclusive value="100"/>
-	</xs:restriction>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:element>

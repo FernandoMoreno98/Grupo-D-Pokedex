@@ -64,7 +64,7 @@ class VistaPrincipal extends Escena{
                     this.plantilla = "listacorto";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
-                    canvas2d.font= '8px "NeogreyMedium"';
+                    canvas2d.font= 'bold 8px "NeogreyMedium"';
                     canvas2d.fillText(this.campos[this.posActualX],235,85);
                     canvas2d.fillText(this.campos[this.posActualX+1],320,85);
                     canvas2d.fillText(this.campos[this.posActualX+2],405,85);
@@ -74,7 +74,7 @@ class VistaPrincipal extends Escena{
 
                         var pokemon = ArrayPosPokemonesPintar[i];
                         
-                        canvas2d.font= '14px "NeogreyMedium"';
+                        canvas2d.font= 'bold 14px "NeogreyMedium"';
                         canvas2d.fillText(pokemon[this.campos[this.posActualX]],245,(i*2)+135+i*55);
                         if(pokemon[this.campos[this.posActualX+1]] == null){
                         	canvas2d.fillText("",330,(i*2)+135+i*55);
@@ -92,7 +92,7 @@ class VistaPrincipal extends Escena{
                     this.plantilla = "listamedio";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
-                    canvas2d.font= '12px "NeogreyMedium"';
+                    canvas2d.font= 'bold 12px "NeogreyMedium"';
                     canvas2d.fillText(this.campos[this.posActualX],245,85);
                     canvas2d.fillText(this.campos[this.posActualX+1],415,85);
 
@@ -100,7 +100,7 @@ class VistaPrincipal extends Escena{
                        
                         var pokemon = ArrayPosPokemonesPintar[i];
                         
-                        canvas2d.font= '10px "NeogreyMedium"';
+                        canvas2d.font= 'bold 10px "NeogreyMedium"';
                         canvas2d.fillText(pokemon[this.campos[this.posActualX]],245,(i*2)+135+i*55);
                         if(pokemon[this.campos[this.posActualX+1]] == undefined){
                         	canvas2d.fillText("",415,(i*2)+135+i*55);
@@ -109,7 +109,7 @@ class VistaPrincipal extends Escena{
                         }
                         
 
-                        canvas2d.font= '14px "NeogreyMedium"';
+                        canvas2d.font= 'bold 14px "NeogreyMedium"';
                         canvas2d.fillText(pokemon.pokedex_number,30,(i*2)+135+i*55);
                         canvas2d.fillText(pokemon.name,110,(i*2)+135+i*55);
                     }
@@ -118,17 +118,17 @@ class VistaPrincipal extends Escena{
                     this.plantilla = "listalargo";
                     canvas2d.drawImage(document.getElementById(this.plantilla),10,8,canvas.width-10,canvas.height);
 
-                    canvas2d.font= '14px "NeogreyMedium"';
+                    canvas2d.font= 'bold 14px "NeogreyMedium"';
                     canvas2d.fillText(this.campos[this.posActualX],365,85);
 
                     for(var i = 0; i< ArrayPosPokemonesPintar.length ; i++){
 
                         var pokemon = ArrayPosPokemonesPintar[i];
 
-                        canvas2d.font= '7px "NeogreyMedium"';
+                        canvas2d.font= 'bold 7px "NeogreyMedium"';
                         canvas2d.fillText(pokemon[this.campos[this.posActualX]],240,(i*2)+135+i*55);
                         
-                        canvas2d.font= '14px "NeogreyMedium"';
+                        canvas2d.font= 'bold 14px "NeogreyMedium"';
                         canvas2d.fillText(pokemon.pokedex_number,30,(i*2)+135+i*55);
                         canvas2d.fillText(pokemon.name,110,(i*2)+135+i*55);
                     }
@@ -181,10 +181,10 @@ class VistaPrincipal extends Escena{
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText("LISTA DE POKÉMON" , 40 , 40);
 
-    	canvas2d.font= '20px "NeogreyMedium"';
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText("ID" , 30 ,85);
 
-    	canvas2d.font= '20px "NeogreyMedium"';
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText("NOMBRE" , 95 ,85);
 
     	/*canvas2d.font= '25px "NeogreyMedium"';
@@ -193,16 +193,16 @@ class VistaPrincipal extends Escena{
     	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText("ESC salir             B buscar             O ordenar            C configuracion" , 40 ,470);
 
-    	canvas2d.font= '20px "NeogreyMedium"';
+    	canvas2d.font= 'bold 20px "NeogreyMedium"';
     	canvas2d.fillText("DATOS GENERALES" , 590 ,90);
 
-    	canvas2d.font= '12px "NeogreyMedium"';
+    	canvas2d.font= 'bold 12px "NeogreyMedium"';
     	canvas2d.fillText("Flechas del teclado" , 590 ,20);
 
-    	canvas2d.font= '16px "NeogreyMedium"';
+    	canvas2d.font= 'bold 16px "NeogreyMedium"';
     	canvas2d.fillText("Dato" , 635 ,40);
 
-    	canvas2d.font= '16px "NeogreyMedium"';
+    	canvas2d.font= 'bold 16px "NeogreyMedium"';
     	canvas2d.fillText("Pokémon" , 760 ,40);
 
 	}

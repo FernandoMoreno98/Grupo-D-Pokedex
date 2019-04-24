@@ -57,7 +57,7 @@ class ConfiguracionTexto extends Escena{
         canvas2d.fillText("NUEVO NOMBRE" , 578 , 210);
 
     	canvas2d.font= 'bold 16px "NeogreyMedium"';
-    	canvas2d.fillText("MAXIMO 10 LETRAS" , 573 , 242);
+    	canvas2d.fillText("MAXIMO 12 LETRAS" , 573 , 242);
 
         this.pintarDatosNoFijos();
 	}
@@ -67,7 +67,7 @@ class ConfiguracionTexto extends Escena{
            this.nombre = this.nombre.substr(0,this.nombre.length-1);
            
         }
-        else if(event.keyCode == 32 || event.keyCode >=48 && event.keyCode < 90 && this.nombre.length<10){
+        else if(event.keyCode == 32 || event.keyCode >=48 && event.keyCode < 90 && this.nombre.length<12){
             this.nombre+=event.key;
         }
         this.pintar();
