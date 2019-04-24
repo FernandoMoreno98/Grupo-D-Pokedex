@@ -1,10 +1,13 @@
 package Grupo_D.Pokedex;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import org.bson.BsonArray;
@@ -32,17 +35,21 @@ import com.mongodb.util.JSON;
 public class App 
 {
 	@SuppressWarnings("deprecation")
-	public static void main(String[] args) {	
+	public static void main(String[] args) throws UnsupportedEncodingException {	
 		
 		//Haya la carpeta raiz del proyecto . Se cambiara cuando se añada la direccion relativa al reader
 	    String workingDir = System.getProperty("user.dir");
 	    
+	    InputStream configStream = App.class.getResourceAsStream("pokemon.json");
+	    BufferedReader configReader = new BufferedReader(new InputStreamReader(configStream, "UTF-8"));
+	    		
 	    //Se intenta leer el json para crear la base de datos 
-		try(FileReader reader = new FileReader(workingDir + "/src/main/resources/static/pokedex/pokemon.json")) {
+	    //FileReader reader = new FileReader(workingDir + "/src/main/resources/static/pokedex/pokemon.json")
+		try{
 			
 			//Se crea un parser de json con una libreria externa y se crea un objeto jsonarray ya que nuestro json es un array de pokemones
 			JSONParser jsonParser = new JSONParser();
-			Object obj = jsonParser.parse(reader);
+			Object obj = jsonParser.parse(configReader);
 			JSONArray PokemonList = (JSONArray) obj;
 			
 			//Se crea un arraylist que guardara los documentos que vamos a insertar en mongo
